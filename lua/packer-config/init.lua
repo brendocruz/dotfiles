@@ -46,6 +46,9 @@ return packer.startup(function(use)
 	use 'voldikss/vim-floaterm'
 	use 'preservim/tagbar'
 	use 'tpope/vim-commentary'
+	use 'p00f/nvim-ts-rainbow'
+	use 'windwp/nvim-autopairs'
+	use 'windwp/nvim-ts-autotag'
 end)
 
 

@@ -1,15 +1,30 @@
-require'nvim-treesitter.configs'.setup {
+local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
+if not status_ok then
+	return
+end
+
+configs.setup({
 	ensure_installed = {
 		'c', 'cpp', 'lua', 'python',
 		'javascript', 'typescript', 'tsx',
 		'css', 'html'
 	},
-
 	sync_install = false,
 	auto_install = true,
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = false,
+		disable = { ""},
+		additional_vim_regex_highlighting = true,
 	},
-}
+	indent = {
+		enable = false,
+		disable = { "" },
+	},
+	-- nvim-ts-rainbow
+	rainbow = {
+		enable = true,
+		disable = { "" },
+		extended_mode = true,
+	},
+})
 
