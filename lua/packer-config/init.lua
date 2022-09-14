@@ -1,4 +1,20 @@
-return require('packer').startup(function(use)
+
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+	return
+end
+
+packer.init({
+	display = {
+		open_fn = function()
+			return require('packer.util').float({
+				border = 'none'
+			})
+		end,
+	},
+})
+
+return packer.startup(function(use)
 	use 'EdenEast/nightfox.nvim'
 	use 'wbthomason/packer.nvim'
 	use 'neovim/nvim-lspconfig'
@@ -31,3 +47,5 @@ return require('packer').startup(function(use)
 	use 'preservim/tagbar'
 	use 'tpope/vim-commentary'
 end)
+
+
