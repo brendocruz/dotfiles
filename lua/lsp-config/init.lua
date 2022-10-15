@@ -3,8 +3,33 @@ if not status_ok then
 	return
 end
 
+-- UI Customization
+-- Customizing how diagnostics are displayed
+vim.diagnostic.config({
+	-- :help vim.diagnostic.config
+	virtual_text = {
+		source = 'always',
+	},
+	float = {
+		source = 'always',
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = false
+})
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+
+
+
+
+--- Servers config
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- lspconfig.clangd.setup({
 -- 	capabilities = capabilities
