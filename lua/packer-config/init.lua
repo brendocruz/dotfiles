@@ -49,6 +49,8 @@ return packer.startup(function(use)
 	use 'p00f/nvim-ts-rainbow'
 	use 'windwp/nvim-autopairs'
 	use 'windwp/nvim-ts-autotag'
+	use 'nvim-lua/plenary.nvim'
+	use 'gbprod/phpactor.nvim'
 end)
 
 

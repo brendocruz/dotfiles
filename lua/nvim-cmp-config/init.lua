@@ -42,34 +42,3 @@ cmp.setup({
 	}
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local status_ok, lspconfig = pcall(require, 'lspconfig')
-if not status_ok then
-	return
-end
-
-lspconfig.clangd.setup({
-	capabilities = capabilities
-})
-
-lspconfig.tsserver.setup({
-	capabilities = capabilities
-})
-
-lspconfig.html.setup({
-	capabilities = capabilities
-})
-
-lspconfig.emmet_ls.setup({
-	capabilities = capabilities
-})
-
-lspconfig.cssls.setup({
-	capabilities = capabilities
-})
-
-lspconfig.pyright.setup({
-	capabilities = capabilities
-})

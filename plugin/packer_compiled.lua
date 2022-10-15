@@ -174,6 +174,16 @@ _G.packer_plugins = {
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["phpactor.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/phpactor.nvim",
+    url = "https://github.com/gbprod/phpactor.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
   tagbar = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/tagbar",

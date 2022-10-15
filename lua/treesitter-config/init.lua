@@ -7,7 +7,7 @@ configs.setup({
 	ensure_installed = {
 		'c', 'cpp', 'lua', 'python',
 		'javascript', 'typescript', 'tsx',
-		'css', 'html'
+		'css', 'html', 'php'
 	},
 	sync_install = false,
 	auto_install = true,
