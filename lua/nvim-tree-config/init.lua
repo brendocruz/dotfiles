@@ -8,39 +8,44 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 nvim_tree.setup({
-	open_on_setup = true,
-
+	diagnostics = {
+		enable = true,
+		show_on_dirs = true,
+	},
+	filters = {
+		custom = {},
+		dotfiles = true,
+		exclude = {},
+	},
+	open_on_setup = false,
+	renderer = {
+		add_trailing = true,
+		group_empty = true,
+		highlight_opened_files = 'all',
+		indent_width = 2,
+		root_folder_modifier = ':t',
+	},
 	sort_by = 'case_sensitive',
 	view = {
-		adaptive_size = false,
-		preserve_window_proportions = false,
-		number = false,
-		relativenumber = false,
-		signcolumn = 'yes',
+		adaptive_size = true,
+		centralize_selection = true,
 		float = {
 			enable = true,
 			quit_on_focus_loss = true,
 			open_win_config = {
 				relative = 'editor',
-				border = 'none',
+				border = 'double',
 				width = 30,
 				height = 30,
-				row = 1,
-				col = 1,
-			}
-		}
+				row = 0,
+				col = 0,
+			},
+		},
+		hide_root_folder = false,
+		number = false,
+		preserve_window_proportions = false,
+		relativenumber = false,
+		side = 'left',
+		signcolumn = 'yes',
 	},
-	renderer = {
-		group_empty = true,
-		highlight_opened_files = 'all',
-		root_folder_modifier = ':p',
-		indent_width = 3
-	},
-	filters = {
-		dotfiles = true,
-	},
-	diagnostics = {
-		enable = true,
-		show_on_dirs = true
-	}
 })
