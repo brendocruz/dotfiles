@@ -174,10 +174,10 @@ _G.packer_plugins = {
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["phpactor.nvim"] = {
+  ["phpfmt.nvim"] = {
     loaded = true,
-    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/phpactor.nvim",
-    url = "https://github.com/gbprod/phpactor.nvim"
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/phpfmt.nvim",
+    url = "https://github.com/yuchanns/phpfmt.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -188,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/preservim/tagbar"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,

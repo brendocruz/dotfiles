@@ -47,10 +47,19 @@ lspconfig.cssls.setup({
 	capabilities = capabilities
 })
 
+
+
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+
+
 lspconfig.html.setup({
 	capabilities = capabilities
 })
+
+
 
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
@@ -58,13 +67,9 @@ lspconfig.emmet_ls.setup({
 		'html', 'typescriptreact', 'javascriptreact',
 		'css', 'sass', 'scss', 'less'
 	},
-	init_options = { }
 })
 
 
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.intelephense.setup({
 	cmd = {
@@ -72,9 +77,15 @@ lspconfig.intelephense.setup({
 	},
 	filetypes = { 'php' },
 	root_dir = lspconfig.util.root_pattern('composer.json', '.git', 'wp-content') or dirname,
+	-- root_dir = lspconfig.util.root_patter('*.php', 'composer.json', '.git') or vim.fn.getcwd()
 	capabilities = capabilities,
 	settings = {
 		intelephense = {
+			format = {
+				enable = true,
+			},
+			completion = {
+			},
 			stubs = {
 				'bcmath',
 				'bz2',
