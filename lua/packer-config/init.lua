@@ -16,9 +16,7 @@ packer.init({
 
 return packer.startup(function(use)
 	-- Color Shemes
-	use 'bluz71/vim-moonfly-colors'	
-	-- use 'projekt0n/github-nvim-theme'
-	-- use 'EdenEast/nightfox.nvim'
+	use 'EdenEast/nightfox.nvim'
 
 	use 'wbthomason/packer.nvim'
 	use 'neovim/nvim-lspconfig'

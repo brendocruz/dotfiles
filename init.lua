@@ -1,9 +1,13 @@
 require('settings')
 require('mappings')
 
--- Color Scheme
-require('moonfly-colors-config')
+
+-- Plugin Manager
 require('packer-config')
+
+-- Color Scheme
+require('colorscheme-config.nightfox')
+
 require('nvim-tree-config')
 require('lualine-config')
 require('barbar-config/mappings')

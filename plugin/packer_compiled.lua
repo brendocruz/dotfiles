@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -208,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
+  },
+  ["vim-moonfly-colors"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
+    url = "https://github.com/bluz71/vim-moonfly-colors"
   },
   ["vim-snippets"] = {
     loaded = true,
