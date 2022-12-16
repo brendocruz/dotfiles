@@ -17,8 +17,8 @@ configs.setup({
 		additional_vim_regex_highlighting = true,
 	},
 	indent = {
-		enable = false,
-		disable = { "" },
+		enable = true,
+		disable = { "html"},
 	},
 	-- nvim-ts-rainbow
 	rainbow = {

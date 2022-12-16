@@ -30,3 +30,8 @@ vim.opt.termguicolors = true
 
 vim.opt.hidden = true -- Don't need to save to change files
 
+-- vim.cmd([[
+-- 	let g:PHP_default_indenting = 1
+-- 	let g:PHP_outdentphpescape = 0
+-- 	let g:PHP_noArrowMatching = 1
+-- ]])

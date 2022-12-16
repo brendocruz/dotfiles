@@ -15,7 +15,7 @@ packer.init({
 })
 
 return packer.startup(function(use)
-	use 'EdenEast/nightfox.nvim'
+	-- use 'EdenEast/nightfox.nvim'
 	use 'wbthomason/packer.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
@@ -53,6 +53,10 @@ return packer.startup(function(use)
 	use 'nvim-telescope/telescope.nvim'
 
 	use 'yuchanns/phpfmt.nvim'
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'projekt0n/github-nvim-theme'
+	
+	-- use 'ervandew/supertab'
 end)
 
 

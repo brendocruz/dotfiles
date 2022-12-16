@@ -35,6 +35,26 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- 	capabilities = capabilities
 -- })
 
+lspconfig.sumneko_lua.setup({
+	settings = {
+		Lua = {
+			runtime = {
+				version = 'LuaJIT',
+			},
+			diagnostics = {
+				globals = {'vim'},
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file('', true),
+			},
+			telemetry = {
+				enable = false,
+			}
+		}
+	}
+})
+
+
 lspconfig.tsserver.setup({
 	capabilities = capabilities
 })
@@ -43,9 +63,6 @@ lspconfig.pyright.setup({
 	capabilities = capabilities
 })
 
-lspconfig.cssls.setup({
-	capabilities = capabilities
-})
 
 
 
@@ -56,7 +73,28 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 lspconfig.html.setup({
-	capabilities = capabilities
+	capabilities = capabilities,
+	filetypes = {
+		'html'
+	},
+	init_options = {
+		configurationSection = {'html', 'css', 'javascript'},
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+		provideFormatter = true,
+	},
+	settings = {
+		html = {
+			format = {
+				enable = true,
+				indentInnerHtml = false,
+				extraLiners = '',
+				templating = true,
+			}
+		}
+	}
 })
 
 
@@ -65,8 +103,14 @@ lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
 	filetypes = {
 		'html', 'typescriptreact', 'javascriptreact',
-		'css', 'sass', 'scss', 'less'
+		-- 'css', 'sass', 'scss', 'less'
 	},
+})
+
+
+
+lspconfig.cssls.setup({
+	capabilities = capabilities
 })
 
 
@@ -76,11 +120,19 @@ lspconfig.intelephense.setup({
 		'intelephense', '--stdio',
 	},
 	filetypes = { 'php' },
-	root_dir = lspconfig.util.root_pattern('composer.json', '.git', 'wp-content') or dirname,
+	-- root_dir = lspconfig.util.root_pattern('composer.json', '.git', 'wp-content', 'plugins') or dirname,
+	-- root_dir = lspconfig.util.root_pattern('wp-content', '.') or dirname,
+	root_dir = lspconfig.util.root_pattern('wp-content') or vim.fn.getcwd(),
 	-- root_dir = lspconfig.util.root_patter('*.php', 'composer.json', '.git') or vim.fn.getcwd()
 	capabilities = capabilities,
 	settings = {
 		intelephense = {
+			diagnostics = {
+				enable = true,
+				embeddedLanguages = {
+					'html'
+				},
+			},
 			format = {
 				enable = true,
 			},
