@@ -1,7 +1,8 @@
 require('settings')
 require('mappings')
--- require('nightfox-config')
-require('nvim-theme')
+
+-- Color Scheme
+require('moonfly-colors-config')
 require('packer-config')
 require('nvim-tree-config')
 require('lualine-config')
