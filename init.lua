@@ -15,17 +15,20 @@ require('mason-config')
 -- Autocompletion
 require('nvim-cmp-config')
 
+-- Icons
+require('lspkind-config')
+
+-- UI
 require('nvim-tree-config')
 require('lualine-config')
 require('barbar-config/mappings')
 require('barbar-config/options')
-require('snippy-config')
-require('lspkind-config')
-require('treesitter-config')
-require('floaterm-config')
 require('tagbar-config')
+require('floaterm-config')
+
+-- Other
+require('treesitter-config')
 require('nvim-autopairs-config')
 require('nvim-ts-autotag-config')
-require('telescope-config')
+-- require('telescope-config')
 -- require('null-ls-config')
-require('phpfmt-config')

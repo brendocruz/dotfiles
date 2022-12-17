@@ -40,6 +40,7 @@ return packer.startup(function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'hrsh7th/cmp-nvim-lsp'
 	-- use 'rsh7th/cmp-nvim-lua'
@@ -48,7 +49,6 @@ return packer.startup(function(use)
 	use 'L3MON4D3/LuaSnip'
 	-- use 'honza/vim-snippets'
 
-	use 'hrsh7th/cmp-cmdline'
 
 	-- Icons
 	use 'onsails/lspkind.nvim'
@@ -61,6 +61,7 @@ return packer.startup(function(use)
 	use 'preservim/tagbar'
 	use 'voldikss/vim-floaterm'
 
+	-- Other
 	use 'tpope/vim-commentary'
 	use 'p00f/nvim-ts-rainbow'
 	use 'windwp/nvim-autopairs'

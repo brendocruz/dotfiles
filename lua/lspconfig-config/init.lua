@@ -305,7 +305,9 @@ lspconfig.html.setup({
 				templating = true,
 			}
 		}
-	}
+	},
+	on_attach = on_attach,
+	flags = lsp_flags,
 })
 
 
@@ -316,12 +318,16 @@ lspconfig.emmet_ls.setup({
 		'html', 'typescriptreact', 'javascriptreact',
 		-- 'css', 'sass', 'scss', 'less'
 	},
+	on_attach = on_attach,
+	flags = lsp_flags,
 })
 
 
 
 lspconfig.cssls.setup({
-	capabilities = capabilities
+	capabilities = capabilities,
+	on_attach = on_attach,
+	flags = lsp_flags,
 })
 
 
