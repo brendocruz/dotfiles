@@ -6,7 +6,7 @@ require('mappings')
 require('packer-config')
 
 -- Color Scheme
-require('colorscheme-config.nightfox')
+require('nightfox-config')
 
 require('nvim-tree-config')
 require('lualine-config')
