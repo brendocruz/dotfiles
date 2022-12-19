@@ -8,9 +8,10 @@ require('packer-config')
 -- Color Scheme
 require('nightfox-config')
 
--- LSP
+-- LSP support
 require('lspconfig-config')
 require('mason-config')
+-- require('null-ls-config')
 
 -- Autocompletion
 require('nvim-cmp-config')
@@ -28,7 +29,7 @@ require('floaterm-config')
 
 -- Other
 require('treesitter-config')
+-- require('telescope-config')
+
 require('nvim-autopairs-config')
 require('nvim-ts-autotag-config')
--- require('telescope-config')
--- require('null-ls-config')

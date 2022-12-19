@@ -22,19 +22,12 @@ return packer.startup(function(use)
 	use 'EdenEast/nightfox.nvim'
 
 	-- Treesitter
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = function()
-			require('nvim-treesitter.install').update({
-				with_sync = true
-			})
-		end,
-	}
 
 	-- LSP Support
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
 	-- use 'williamboman/mason-lspconfig.nvim'
+	-- use 'jose-elias-alvarez/null-ls.nvim'
 
 	-- Autocompletion
 	use 'hrsh7th/nvim-cmp'
@@ -66,11 +59,20 @@ return packer.startup(function(use)
 	use 'p00f/nvim-ts-rainbow'
 	use 'windwp/nvim-autopairs'
 	use 'windwp/nvim-ts-autotag'
-	use 'nvim-lua/plenary.nvim'
-	use 'nvim-telescope/telescope.nvim'
 
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			require('nvim-treesitter.install').update({
+				with_sync = true
+			})
+		end,
+	}
+	use 'nvim-telescope/telescope.nvim'
+	use 'nvim-lua/plenary.nvim'
+
+	-- LSPs
 	use 'yuchanns/phpfmt.nvim'
-	use 'jose-elias-alvarez/null-ls.nvim'
 end)
 
 

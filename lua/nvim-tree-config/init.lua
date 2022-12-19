@@ -20,7 +20,7 @@ nvim_tree.setup({
 	open_on_setup = false,
 	renderer = {
 		add_trailing = true,
-		group_empty = true,
+		group_empty = false,
 		highlight_opened_files = 'all',
 		indent_width = 2,
 		root_folder_modifier = ':t',
@@ -34,7 +34,7 @@ nvim_tree.setup({
 			quit_on_focus_loss = true,
 			open_win_config = {
 				relative = 'editor',
-				border = 'double',
+				border = 'none',
 				width = 30,
 				height = 30,
 				row = 0,
@@ -49,3 +49,10 @@ nvim_tree.setup({
 		signcolumn = 'yes',
 	},
 })
+
+
+local opts = { noremap = true, silent = true }
+-- NvimTree
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeFocus<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>c', ':NvimTreeCollapse<CR>', opts)
