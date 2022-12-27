@@ -27,7 +27,7 @@ cmp.setup({
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
-				luasnip.expend_or_jump()
+				luasnip.expand_or_jump()
 			else
 				fallback()
 			end
