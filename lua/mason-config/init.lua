@@ -3,10 +3,11 @@ if not status_ok then
 	return
 end
 
+-- BORDERS, FLOATING WINDOWS...
+-- :h nvim_open_win()
+
 mason.setup({
 	ui = {
-		border = 'none' -- :h nvim_open_win(), border
+		border = 'none',
 	},
-
 })
-

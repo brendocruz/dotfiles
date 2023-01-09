@@ -11,7 +11,9 @@ require('nightfox-config')
 -- LSP support
 require('lspconfig-config')
 require('mason-config')
+require('mason-lspconfig-config')
 -- require('null-ls-config')
+require('lsp')
 
 -- Autocompletion
 require('nvim-cmp-config')
