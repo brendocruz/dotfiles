@@ -64,7 +64,7 @@ nvim_tree.setup({
 	},
 	filters = {
 		custom = {},
-		dotfiles = true,
+		dotfiles = false,
 		exclude = {},
 	},
 	open_on_setup = false,
@@ -82,14 +82,6 @@ nvim_tree.setup({
 		float = {
 			enable = true,
 			quit_on_focus_loss = true,
-			-- open_win_config = {
-			-- 	relative = 'editor',
-			-- 	border = 'none',
-			-- 	width = 30,
-			-- 	height = 30,
-			-- 	row = 0,
-			-- 	col = 0,
-			-- },
 			open_win_config = function()
 				local screen_w = vim.opt.columns:get()
 				local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
@@ -102,13 +94,13 @@ nvim_tree.setup({
 					- vim.opt.cmdheight:get()
 				
 				return {
-					border = 'none',
+					border = 'solid',
 					relative = 'editor',
 					row = center_y,
 					col = center_x,
 					width = window_w_int,
 					height = window_h_int,
-					style = 'minimal'
+					style = 'minimal',
 				}
 			end,
 		},
