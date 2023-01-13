@@ -48,7 +48,7 @@ return packer.startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 
 	-- UI
-	use 'kyazdani42/nvim-tree.lua'
+	-- use 'kyazdani42/nvim-tree.lua'
 	use 'nvim-lualine/lualine.nvim'
 	use 'romgrk/barbar.nvim'
 	use 'preservim/tagbar'
@@ -73,6 +73,17 @@ return packer.startup(function(use)
 
 	-- LSPs
 	use 'yuchanns/phpfmt.nvim'
+
+	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+	use {
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = { 
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		}
+	}
 end)
 
 

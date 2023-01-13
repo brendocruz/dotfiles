@@ -22,7 +22,8 @@ require('nvim-cmp-config')
 require('lspkind-config')
 
 -- UI
-require('nvim-tree-config')
+-- require('nvim-tree-config')
+require('nvim-neo-tree-config')
 require('lualine-config')
 require('barbar-config/mappings')
 require('barbar-config/options')
