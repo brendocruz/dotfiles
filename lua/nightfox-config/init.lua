@@ -48,10 +48,14 @@ require('nightfox').setup({
 			},
 			BufferCurrentSign = {
 				bg = 'palette.black.dim'
-			}
+			},
+			-- Floaterm = {
+			-- 	bg = 'palette.blue.dim'
+			-- }
 		},
 	},
 })
 
 -- setup must be called before loading
 vim.cmd("colorscheme nightfox")
+
