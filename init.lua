@@ -12,7 +12,7 @@ require('nightfox-config')
 require('lspconfig-config')
 require('mason-config')
 require('mason-lspconfig-config')
--- require('null-ls-config')
+require('null-ls-config')
 require('lsp')
 
 -- Autocompletion

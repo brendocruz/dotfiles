@@ -21,7 +21,6 @@ autotag.setup({
 
 
 
-
 -- Enable update on insert
 -- If you have that issue #19
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
