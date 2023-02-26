@@ -1,4 +1,4 @@
-local sumneko_lua = {
+local lua_ls = {
 	settings = {
 		Lua = {
 			runtime = {
@@ -17,4 +17,4 @@ local sumneko_lua = {
 	}
 }
 
-return sumneko_lua
+return lua_ls

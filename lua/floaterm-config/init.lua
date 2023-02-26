@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true}
-local args = ' --height=0.9 --width=0.9 --borderchars=\\  --title=Terminal\\ ($1|$2)'
+local args = ' --height=0.9 --width=0.85 --title=Terminal\\ ($1|$2)'
 
 map('n', '<F6>',  ':FloatermPrev<CR>', opts);
 map('t', '<F6>',  '<C-\\><C-n>:FloatermPrev<CR>', opts);

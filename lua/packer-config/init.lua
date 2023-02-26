@@ -68,6 +68,9 @@ return packer.startup(function(use)
 			})
 		end,
 	}
+	use 'nvim-treesitter/playground'
+	-- use	'nvim-treesitter/nvim-treesitter-textobjects'
+
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim'
 

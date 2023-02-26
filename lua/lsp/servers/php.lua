@@ -9,7 +9,7 @@ local intelephense = {
 	-- },
 	filetypes = { 'php' },
 	-- root_dir = lspconfig.util.root_pattern('composer.json', '.git', 'wp-content', 'plugins') or dirname,
-	-- root_dir = lspconfig.util.root_pattern('wp-content', '.') or dirname,
+	root_dir = lspconfig.util.root_pattern('wp-content', '.') or dirname,
 	-- root_dir = lspconfig.util.root_pattern('wp-content') or vim.fn.getcwd(),
 	-- root_dir = lspconfig.util.root_patter('*.php', 'composer.json', '.git') or vim.fn.getcwd()
 	capabilities = capabilities,

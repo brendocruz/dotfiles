@@ -9,7 +9,7 @@ lspconfig.setup({
 		'emmet_ls',
 		'html',
 		'tsserver',
-		'sumneko_lua',
+		'lua_ls',
 		'intelephense'
 	},
 	automatic_installation = false,
