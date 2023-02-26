@@ -36,3 +36,4 @@ require('treesitter-config')
 
 require('nvim-autopairs-config')
 require('nvim-ts-autotag-config')
+require('nvim-surround-config')

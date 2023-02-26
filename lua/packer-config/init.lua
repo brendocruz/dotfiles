@@ -59,6 +59,7 @@ return packer.startup(function(use)
 	use 'p00f/nvim-ts-rainbow'
 	use 'windwp/nvim-autopairs'
 	use 'windwp/nvim-ts-autotag'
+	use 'kylechui/nvim-surround'
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
