@@ -11,11 +11,12 @@ local tsserver_plugins = {
 
 
 return {
+	root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.'),
 	init_options = {
 		plugins = tsserver_plugins,
 	},
 	on_attach = function(client, buffer)
-		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingProvider = true
 		on_attach(client, buffer)
 	end,
 	capabilities = capabilities,

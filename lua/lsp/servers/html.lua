@@ -17,7 +17,7 @@ local settings = {
 	html = {
 		format = {
 			enable = true,
-			indentInnerHtml = false,
+			indentInnerHtml = true,
 			extraLiners = '',
 			templating = true,
 		}

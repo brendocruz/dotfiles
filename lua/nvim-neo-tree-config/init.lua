@@ -28,7 +28,7 @@ neotree.setup({
 	enable_git_status = true,
 	enable_diagnostics = true,
 	sort_case_insensitive = false, -- used when sorting files and directories in the tree
-	sort_function = nil , -- use a custom function for sorting files and directories in the tree 
+	sort_function = nil,        -- use a custom function for sorting files and directories in the tree
 	-- sort_function = function (a,b)
 	-- 	if a.type == b.type then
 	-- 		return a.path > b.path
@@ -77,8 +77,8 @@ neotree.setup({
 				-- Change type
 				added     = '', -- or "✚", but this is redundant info if you use git_status_colors on the name
 				modified  = '', -- or "", but this is redundant info if you use git_status_colors on the name
-				deleted   = '✖',-- this can only be used in the git_status source
-				renamed   = '',-- this can only be used in the git_status source
+				deleted   = '✖', -- this can only be used in the git_status source
+				renamed   = '', -- this can only be used in the git_status source
 				-- Status type
 				untracked = '',
 				ignored   = '',
@@ -96,9 +96,9 @@ neotree.setup({
 			nowait = true,
 		},
 		mappings = {
-			['<space>'] = { 
-				'toggle_node', 
-				nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
+			['<space>'] = {
+				'toggle_node',
+				nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 			},
 			['<2-LeftMouse>'] = 'open',
 			['<cr>'] = 'open',
@@ -122,7 +122,7 @@ neotree.setup({
 			['h'] = 'close_node',
 			['z'] = 'close_all_nodes',
 			--["Z"] = "expand_all_nodes",
-			['a'] = { 
+			['a'] = {
 				'add',
 				-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -153,13 +153,34 @@ neotree.setup({
 	},
 	nesting_rules = {},
 	filesystem = {
+		components = {
+			name = function(config, node, state)
+				local highlight = config.highlight
+
+				local name = node.name
+				if node.type == 'directory' then
+					if string.sub(name, 1, 1) == '~' then
+						local range_start, range_end = string.find(name, '/[^/]*$')
+						if range_start ~= nil then
+							local path = string.sub(name, range_start, range_end)
+							name = '.' .. path
+						end
+					end
+				end
+
+				return {
+					text = name,
+					highlight = highlight,
+				}
+			end
+		},
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
 			hide_dotfiles = false,
 			hide_gitignored = true,
 			hide_hidden = true, -- only works on Windows for hidden files/directories
 			hide_by_name = {
-				--"node_modules"
+				'node_modules', 'package.json', 'package-lock.json'
 			},
 			hide_by_pattern = { -- uses glob style patterns
 				--"*.meta",
@@ -177,9 +198,9 @@ neotree.setup({
 				--".null-ls_*",
 			},
 		},
-		follow_current_file = false, -- This will find and focus the file in the active buffer every
+		follow_current_file = false,      -- This will find and focus the file in the active buffer every
 		-- time the current file is changed while the tree is open.
-		group_empty_dirs = false, -- when true, empty folders will be grouped together
+		group_empty_dirs = false,         -- when true, empty folders will be grouped together
 		hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
 		-- in whatever position is specified in window.position
 		-- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -230,9 +251,7 @@ neotree.setup({
 	}
 })
 
-vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-
-
+-- vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>e', ':Neotree toggle reveal position=float<CR>', opts)

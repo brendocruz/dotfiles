@@ -17,14 +17,19 @@ local intelephense = {
 		intelephense = {
 			diagnostics = {
 				enable = true,
-				embeddedLanguages = {
-					'html'
-				},
+				-- embeddedLanguages = {
+				-- 	'html'
+				-- },
+			},
+			environment = {
+				-- includePaths = '**/plugins;**/mu-plugins;**/themes;',
 			},
 			format = {
-				enable = true,
+				enable = false,
+				braces = 'k&r',
 			},
 			completion = {
+				-- insertUseDeclaration = true,
 			},
 			stubs = {
 				'bcmath',

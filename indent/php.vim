@@ -1,10 +1,11 @@
 
+
 if exists("b:did_indent")
-  finish
+	finish
 endif
 
 if exists('s:doing_indent_inits')
-  finish
+	finish
 endif
 let s:doing_indent_inits = 2
 
@@ -12,6 +13,7 @@ runtime! indent/html.vim
 unlet b:did_indent
 runtime! indent/php.vim
 unlet s:doing_indent_inits
+let b:did_indent = 1
 
 function! GetPhpHtmlIndent(lnum)
 	if exists('*HtmlIndent')
@@ -21,7 +23,7 @@ function! GetPhpHtmlIndent(lnum)
 	endif
 
 	let php_ind = GetPhpIndent()
-	 " priority one for php indent script
+	" priority one for php indent script
 	if php_ind > -1
 		return php_ind
 	endif
@@ -29,8 +31,8 @@ function! GetPhpHtmlIndent(lnum)
 	if html_ind > -1
 
 		if getline(a:lnum) =~ "^<?" && (0< searchpair('<?', '', '?>', 'nWb')
-			\ || 0 < searchpair('<?', '', '?>', 'nW'))
-		return -1
+					\ || 0 < searchpair('<?', '', '?>', 'nW'))
+			return -1
 		endif
 		return html_ind
 	endif
