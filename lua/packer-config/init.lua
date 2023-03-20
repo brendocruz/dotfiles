@@ -1,4 +1,3 @@
-
 local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
 	return
@@ -34,9 +33,9 @@ return packer.startup(function(use)
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
-	use 'saadparwaiz1/cmp_luasnip'
 	use 'hrsh7th/cmp-nvim-lsp'
 	-- use 'rsh7th/cmp-nvim-lua'
+	use 'saadparwaiz1/cmp_luasnip'
 
 	-- Snippets
 	use 'L3MON4D3/LuaSnip'
@@ -82,12 +81,11 @@ return packer.startup(function(use)
 	use {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		requires = { 
+		requires = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		}
 	}
+	use 'simrat39/symbols-outline.nvim'
 end)
-
-

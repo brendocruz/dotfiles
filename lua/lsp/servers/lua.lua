@@ -1,5 +1,7 @@
 local on_attach = require('lsp.on_attach')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local settings = {
 	Lua = {
@@ -11,7 +13,7 @@ local settings = {
 		},
 		diagnostics = {
 			enable = true,
-			globals = {'vim'},
+			globals = { 'vim' },
 		},
 		format = {
 			enable = true,
@@ -27,6 +29,6 @@ local settings = {
 
 return {
 	on_attach = on_attach,
-	capabilities = capabilities,
+	-- capabilities = capabilities,
 	settings = settings,
 }

@@ -1,6 +1,6 @@
+-- VIM Configurations
 require('settings')
 require('mappings')
-
 
 -- Plugin Manager
 require('packer-config')
@@ -8,15 +8,17 @@ require('packer-config')
 -- Color Scheme
 require('nightfox-config')
 
--- LSP support
+-- LSP Support
 require('lspconfig-config')
 require('mason-config')
 require('mason-lspconfig-config')
 require('null-ls-config')
+-- LSP Servers
 require('lsp')
 
 -- Autocompletion
-require('nvim-cmp-config')
+require('autocompletation')
+-- require('nvim-cmp-config')
 
 -- Icons
 require('lspkind-config')
@@ -28,6 +30,7 @@ require('lualine-config')
 require('barbar-config/mappings')
 require('barbar-config/options')
 require('tagbar-config')
+-- require('symbols-outline-config')
 require('floaterm-config')
 
 -- Other

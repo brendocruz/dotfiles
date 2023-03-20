@@ -5,10 +5,12 @@ end
 
 local luasnip = require('luasnip')
 
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	view = {
@@ -18,12 +20,9 @@ cmp.setup({
 		}
 	},
 	mapping = cmp.mapping.preset.insert({
-		-- ['<C-p>']     = cmp.mapping.scroll_docs(-4),
-		-- ['<C-n>']     = cmp.mapping.scroll_docs(4),
-		-- ['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>']     = cmp.mapping.abort(),
-		['<CR>']      = cmp.mapping.confirm({ select = true }),
-		['<Tab>']     = cmp.mapping(function(fallback)
+		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -31,7 +30,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, {'i', 's'}),
+		end, { 'i', 's' }),
 		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -40,24 +39,23 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, {'i', 's'})
-		-- source: https://github.com/Abstract-IDE/Abstract/blob/main/lua/plugins/nvim-cmp.lua
+		end, { 'i', 's' })
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'luasnip'  },
-		{ name = 'buffer'   },
-		{ name = 'path'     },
+		{ name = 'luasnip' },
+		{ name = 'buffer' },
+		{ name = 'path' },
 	}),
 	formatting = {
 		format = require('lspkind').cmp_format({
-			mode     = 'symbol_text',
+			mode = 'symbol_text',
 			maxwidth = 35,
-			menu     = {
-				buffer   = '[BUF]',
+			menu = {
+				buffer = '[BUF]',
 				nvim_lsp = '[LSP]',
-				luasnip  = '[SNP]',
-				path     = '[PTH]',
+				luasnip = '[SNP]',
+				path = '[PTH]',
 			}
 		})
 	}
@@ -68,7 +66,7 @@ cmp.setup.filetype('gitcommit', {
 	sources = cmp.config.sources({
 		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
 	}, {
-			{ name = 'buffer' },
+		{ name = 'buffer' },
 	})
 })
 
@@ -86,19 +84,12 @@ cmp.setup.cmdline(':', {
 	sources = cmp.config.sources({
 		{ name = 'path' }
 	}, {
-			{
-				name = 'cmdline',
-				option = {
-					ignore_cmds = { 'Man', '!' }
-				}
+		{
+			name = 'cmdline',
+			option = {
+				ignore_cmds = { 'Man', '!' }
 			}
 		}
+	}
 	)
 })
-
--- -- Set up lspconfig.
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
--- 	capabilities = capabilities
--- }

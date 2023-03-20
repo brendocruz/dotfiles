@@ -15,6 +15,7 @@ local init_options = {
 
 local settings = {
 	html = {
+		autoClosingTags = true,
 		format = {
 			enable = true,
 			indentInnerHtml = true,
