@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["better-html.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/better-html.nvim",
+    url = "/home/jbk/Documentos/Projetos/VIM/better-html.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -109,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -133,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -203,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jbk/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/jbk/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   tagbar = {
     loaded = true,

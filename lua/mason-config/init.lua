@@ -8,6 +8,6 @@ end
 
 mason.setup({
 	ui = {
-		border = 'none',
+		border = 'rounded',
 	},
 })

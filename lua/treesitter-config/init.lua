@@ -18,7 +18,7 @@ configs.setup({
 	},
 	indent = {
 		enable = true,
-		disable = { "php" },
+		disable = { "php", "html" },
 	},
 	-- nvim-ts-rainbow
 	rainbow = {

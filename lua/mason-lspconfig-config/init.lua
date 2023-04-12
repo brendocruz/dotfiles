@@ -10,7 +10,9 @@ lspconfig.setup({
 		'html',
 		'tsserver',
 		'lua_ls',
-		'intelephense'
+		'intelephense',
+		'dockerls',
+		'docker_compose_language_service'
 	},
 	automatic_installation = false,
 })
