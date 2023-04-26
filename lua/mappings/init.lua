@@ -10,6 +10,9 @@ vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', opts)
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', opts)
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', opts)
 
+vim.api.nvim_set_keymap('n', 'gg', 'ggzz', opts)
+vim.api.nvim_set_keymap('n', 'G', 'Gzz', opts)
+
 -- vim.api.nvim_set_keymap('n', '<leader>z', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
 
 vim.api.nvim_set_keymap('n', '<leader>gat', 'vato<Esc>f>i', opts)

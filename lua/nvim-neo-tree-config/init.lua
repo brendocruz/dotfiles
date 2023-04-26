@@ -180,7 +180,8 @@ neotree.setup({
 			hide_gitignored = true,
 			hide_hidden = true, -- only works on Windows for hidden files/directories
 			hide_by_name = {
-				'node_modules', 'package.json', 'package-lock.json'
+				'node_modules', 'package.json', 'package-lock.json', 'tsconfig.json',
+				'webpack.config.js',
 			},
 			hide_by_pattern = { -- uses glob style patterns
 				--"*.meta",

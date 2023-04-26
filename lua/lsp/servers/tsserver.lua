@@ -11,7 +11,7 @@ local tsserver_plugins = {
 
 
 return {
-	root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.'),
+	root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json'),
 	init_options = {
 		plugins = tsserver_plugins,
 	},
@@ -21,4 +21,5 @@ return {
 	end,
 	capabilities = capabilities,
 	filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+	cmd = { 'typescript-language-server', '--stdio' },
 }
