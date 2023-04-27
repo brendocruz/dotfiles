@@ -24,14 +24,7 @@ require('autocompletation')
 require('lspkind-config')
 
 -- UI
--- require('nvim-tree-config')
-require('nvim-neo-tree-config')
-require('lualine-config')
-require('barbar-config/mappings')
-require('barbar-config/options')
-require('tagbar-config')
--- require('symbols-outline-config')
-require('floaterm-config')
+require('ui')
 
 -- Other
 require('treesitter-config')

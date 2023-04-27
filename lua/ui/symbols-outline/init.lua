@@ -9,7 +9,7 @@ symbols_outline.setup({
 	auto_preview = false,
 	position = 'right',
 	relative_width = true,
-	width = 25,
+	width = 40,
 	auto_close = false,
 	show_numbers = false,
 	show_relative_numbers = false,
@@ -68,6 +68,5 @@ symbols_outline.setup({
 	},
 })
 
--- local map = vim.api.nvim_set_keymap
--- local opts = { noremap = true, silent = true }
--- map('n', '<leader>w', ':SymbolsOutline<CR>', opts)
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<leader>w', ':SymbolsOutline<CR>', opts)
