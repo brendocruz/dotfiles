@@ -49,8 +49,8 @@ return packer.startup(function(use)
 	-- UI
 	-- use 'kyazdani42/nvim-tree.lua'
 	use 'nvim-lualine/lualine.nvim'
-	use 'romgrk/barbar.nvim'
-	use 'preservim/tagbar'
+	-- use 'romgrk/barbar.nvim'
+	-- use 'preservim/tagbar'
 	use 'voldikss/vim-floaterm'
 
 	-- Other
@@ -73,6 +73,11 @@ return packer.startup(function(use)
 
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim'
+
+	-- Telescope Extensions
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+
 
 	-- LSPs
 	use 'yuchanns/phpfmt.nvim'

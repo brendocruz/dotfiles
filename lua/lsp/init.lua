@@ -1,18 +1,11 @@
-local config_ok, lspconfig = pcall(require, 'lspconfig')
-local install_ok, lspinstall = pcall(require, 'mason-lspconfig')
+-- LSP Support
+require('lsp.lspconfig')
+require('lsp.mason')
+require('lsp.mason-lspconfig')
+require('lsp.null-ls')
 
-if not (config_ok or install_ok) then
-	return
-end
+-- Icons
+require('lsp.lspkind')
 
-local configs = require('lsp.servers')
-
--- Server Configuration
-local function run_servers_config()
-	for _, server in pairs(lspinstall.get_installed_servers()) do
-		local config = configs[server]
-		lspconfig[server].setup(config or {})
-	end
-end
-
-run_servers_config()
+-- Servers
+require('lsp.lsps')
