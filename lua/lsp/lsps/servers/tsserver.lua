@@ -21,6 +21,5 @@ return {
 	end,
 	capabilities = capabilities,
 	filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-	-- cmd = { 'typescript-language-server', '--stdio' },
-	cmd = {'/usr/bin/typescript-language-server', '--stdio'},
+	cmd = { 'typescript-language-server', '--stdio' },
 }

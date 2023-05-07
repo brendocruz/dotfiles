@@ -3,7 +3,7 @@ require('settings')
 require('mappings')
 
 -- Plugins
-require('packer')
+require('plugin-manager')
 require('color-scheme')
 require('lsp')
 require('autocompletation')
