@@ -49,9 +49,9 @@ require('nightfox').setup({
 			BufferCurrentSign = {
 				bg = 'palette.black.dim'
 			},
-			-- Floaterm = {
-			-- 	bg = 'palette.blue.dim'
-			-- }
+			FloatBorder = {
+				fg = 'palette.blue.dim'
+			}
 		},
 	},
 })

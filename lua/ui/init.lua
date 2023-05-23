@@ -1,7 +1,3 @@
-require('ui.neo-tree')
 require('ui.lualine')
--- require('ui.barbar.mappings')
--- require('ui.barbar.options')
-require('ui.symbols-outline')
-require('ui.floaterm')
 require('ui.telescope')
+require('ui.tmux-nvim')
