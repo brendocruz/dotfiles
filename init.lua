@@ -1,6 +1,5 @@
 -- VIM Configurations
 require('settings')
-require('mappings')
 
 -- Plugins
 require('plugin-manager')
