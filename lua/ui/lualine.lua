@@ -1,10 +1,6 @@
-local statusok, lualine = pcall(require, 'lualine')
-if not statusok then
+local status_ok, lualine = pcall(require, 'lualine')
+if not status_ok then
 	return
-end
-
-function ShowTime()
-	return os.date('%H:%M')
 end
 
 lualine.setup {
@@ -31,8 +27,8 @@ lualine.setup {
 		lualine_b = { 'branch', 'diff', 'diagnostics' },
 		lualine_c = { 'filename' },
 		lualine_x = { 'encoding', 'fileformat', 'filetype' },
-		lualine_y = { 'progress', 'location' },
-		lualine_z = { ShowTime }
+		lualine_y = { 'progress', },
+		lualine_z = { 'location' },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -40,10 +36,10 @@ lualine.setup {
 		lualine_c = { 'filename' },
 		lualine_x = { 'location' },
 		lualine_y = {},
-		lualine_z = {}
+		lualine_z = {},
 	},
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {}
+	extensions = {},
 }

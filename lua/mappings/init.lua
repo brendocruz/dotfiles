@@ -1,20 +1,17 @@
 vim.g.mapleader = ' '
 local opts = { noremap = true, silent = true }
 
--- go half page up or down and centralize the cursor in the middle of the screen
+-- go half page down and centralize the cursor
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', opts)
+
+-- go half page up and centralize the cursor
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', opts)
 
--- go to next or previous occurrence of a search and centralize the cursor
--- in the middle of the screen
+-- go to next search result and centralize the cursor
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', opts)
+
+-- go to previous search result and centralize the cursor
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', opts)
 
-vim.api.nvim_set_keymap('n', 'gg', 'ggzz', opts)
+-- go to the end of the buffer and centralize the cursor
 vim.api.nvim_set_keymap('n', 'G', 'Gzz', opts)
-
--- vim.api.nvim_set_keymap('n', '<leader>z', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
-
-vim.api.nvim_set_keymap('n', '<leader>gat', 'vato<Esc>f>i', opts)
--- vim.api.nvim_set_keymap('n', '<leader>cat', 'vato<Esc>/\\s<CR>v/><CR>hdi<BS><Esc>', opts)
-
