@@ -21,11 +21,11 @@ configs.setup({
 		disable = { "php", "html", 'typescript' },
 	},
 	-- nvim-ts-rainbow
-	rainbow = {
-		enable = true,
-		disable = { "" },
-		extended_mode = true,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	disable = { "" },
+	-- 	extended_mode = true,
+	-- },
 	playground = {
 		enable = false,
 		disable = {},

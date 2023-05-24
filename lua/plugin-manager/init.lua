@@ -28,7 +28,6 @@ return packer.startup(function(use)
 	-- LSPs
 	use 'yuchanns/phpfmt.nvim'
 	use 'folke/neodev.nvim'
-	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 	-- Autocompletion
 	use 'hrsh7th/nvim-cmp'
@@ -56,7 +55,7 @@ return packer.startup(function(use)
 
 	-- Other
 	use 'tpope/vim-commentary'
-	use 'p00f/nvim-ts-rainbow'
+	-- use 'p00f/nvim-ts-rainbow'
 	use 'windwp/nvim-autopairs'
 	use 'windwp/nvim-ts-autotag'
 	use 'kylechui/nvim-surround'
