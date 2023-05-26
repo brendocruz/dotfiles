@@ -15,3 +15,6 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', opts)
 
 -- go to the end of the buffer and centralize the cursor
 vim.api.nvim_set_keymap('n', 'G', 'Gzz', opts)
+
+-- go to normal mode in terminal mode pressing Esc
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)

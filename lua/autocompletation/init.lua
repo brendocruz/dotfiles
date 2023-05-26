@@ -58,7 +58,7 @@ cmp.setup({
 				path = '[PTH]',
 			}
 		})
-	}
+	},
 })
 
 -- Set configuration for specific filetype.

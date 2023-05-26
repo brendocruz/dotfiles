@@ -67,3 +67,15 @@ vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>gf', builtin.git_files, opts)
 vim.keymap.set('n', '<leader>cb', builtin.current_buffer_fuzzy_find, opts)
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<cr>', opts)
+
+
+-- Harpoon mappings
+vim.keymap.set('n', '<C-f>', require('harpoon.ui').toggle_quick_menu, opts)
+vim.keymap.set('n', '<C-a>', require('harpoon.mark').add_file, opts)
+
+vim.keymap.set('n', '<leader>1', function() require('harpoon.ui').nav_file(1) end, opts)
+vim.keymap.set('n', '<leader>2', function() require('harpoon.ui').nav_file(2) end, opts)
+vim.keymap.set('n', '<leader>3', function() require('harpoon.ui').nav_file(3) end, opts)
+vim.keymap.set('n', '<leader>4', function() require('harpoon.ui').nav_file(4) end, opts)
+vim.keymap.set('n', '<leader>5', function() require('harpoon.ui').nav_file(5) end, opts)
+
