@@ -5,6 +5,7 @@ end
 
 lspconfig.setup({
 	ensure_installed = {
+		'clangd',
 		'cssls',
 		'emmet_ls',
 		'html',

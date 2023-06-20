@@ -6,7 +6,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local emmet_ls = {
 	capabilities = capabilities,
 	filetypes = {
-		'html', -- 'typescriptreact', 'javascriptreact',
+		'html', 'typescriptreact', 'javascriptreact',
 		'css', 'sass', 'scss', 'less'
 	},
 	-- on_attach = on_attach,
@@ -15,11 +15,11 @@ local emmet_ls = {
 			['bem.enabled'] = true,
 		}
 	},
-	-- javascriptreact = {
-	-- 	options = {
-	-- 		['jsx.enabled'] = true,
-	-- 	}
-	-- }
+	javascriptreact = {
+		options = {
+			['jsx.enabled'] = true,
+		}
+	}
 }
 
 return emmet_ls

@@ -18,3 +18,7 @@ vim.api.nvim_set_keymap('n', 'G', 'Gzz', opts)
 
 -- go to normal mode in terminal mode pressing Esc
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
+
+-- delete next character
+vim.api.nvim_set_keymap('i', '<C-X>', '<Esc>xpXa', opts)
+vim.api.nvim_set_keymap('n', '<C-X>', 'xpX<Esc>', opts)

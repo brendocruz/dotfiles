@@ -32,6 +32,7 @@ telescope.setup({
 					['<C-H>'] = fb_actions.toggle_hidden,
 				},
 				['n'] = {
+					['cc'] = fb_actions.create,
 					['h'] = fb_actions.goto_parent_dir,
 					['l'] = actions.select_default,
 					['H'] = fb_actions.toggle_hidden,

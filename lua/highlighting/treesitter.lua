@@ -5,9 +5,17 @@ end
 
 configs.setup({
 	ensure_installed = {
-		'c', 'cpp', 'lua', 'python',
-		'javascript', 'typescript', 'tsx',
-		'css', 'html', 'php', 'query'
+		'c',
+		'cpp',
+		'lua',
+		'python',
+		'javascript',
+		'tsx',
+		'typescript',
+		'css',
+		'html',
+		'php',
+		'query',
 	},
 	sync_install = false,
 	auto_install = true,
@@ -18,7 +26,14 @@ configs.setup({
 	},
 	indent = {
 		enable = true,
-		disable = { "php", "html", 'typescript' },
+		disable = {
+			'php',
+			'html',
+			'typescript',
+			'javascript',
+			'c',
+			'cpp'
+		},
 	},
 	-- nvim-ts-rainbow
 	-- rainbow = {
@@ -29,7 +44,7 @@ configs.setup({
 	playground = {
 		enable = false,
 		disable = {},
-		updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+		updatetime = 25,   -- Debounced time for highlighting nodes in the playground from source code
 		persist_queries = false, -- Whether the query persists across vim sessions
 		keybindings = {
 			toggle_query_editor = 'o',
@@ -45,4 +60,3 @@ configs.setup({
 		},
 	},
 })
-

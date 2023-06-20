@@ -9,5 +9,6 @@ modules.intelephense = require('lsp.lsps.servers.php')
 modules.emmet_ls = require('lsp.lsps.servers.emmet')
 modules.dockerls = require('lsp.lsps.servers.dockerfile')
 modules.docker_compose_language_service = require('lsp.lsps.servers.dockercompose')
+modules.clangd = require('lsp.lsps.servers.cpp')
 
 return modules
