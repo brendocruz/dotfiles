@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local fb_actions = require('telescope._extensions.file_browser');
+local fb_actions = telescope.extensions.file_browser.actions
 local actions = require "telescope.actions"
 
 
@@ -24,6 +24,7 @@ telescope.setup({
 		file_browser = {
 			theme = 'ivy',
 			hijack_netrw = true,
+			grouped = true,
 			initial_mode = 'normal',
 			mappings = {
 				['i'] = {
@@ -32,6 +33,7 @@ telescope.setup({
 					['<C-H>'] = fb_actions.toggle_hidden,
 				},
 				['n'] = {
+					['c'] = false,
 					['cc'] = fb_actions.create,
 					['h'] = fb_actions.goto_parent_dir,
 					['l'] = actions.select_default,
@@ -72,7 +74,7 @@ vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buf
 
 -- Harpoon mappings
 vim.keymap.set('n', '<C-f>', require('harpoon.ui').toggle_quick_menu, opts)
-vim.keymap.set('n', '<C-a>', require('harpoon.mark').add_file, opts)
+vim.keymap.set('n', '<C-s>', require('harpoon.mark').add_file, opts)
 
 vim.keymap.set('n', '<leader>1', function() require('harpoon.ui').nav_file(1) end, opts)
 vim.keymap.set('n', '<leader>2', function() require('harpoon.ui').nav_file(2) end, opts)

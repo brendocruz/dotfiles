@@ -6,6 +6,7 @@ end
 autotag.setup({
 	filetypes = {
 		'html', 'xml', 'php', 'markdown', 'javascriptreact', 'typescriptreact',
+		'javascript', 'typescript'
 	},
 })
 
