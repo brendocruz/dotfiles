@@ -1,7 +1,7 @@
 require('lspkind').init({
-    mode = 'symbol_text',
-    preset = 'codicons',
-    symbol_map = {
+	mode = 'symbol_text',
+	preset = 'codicons',
+	symbol_map = {
 		Text = "",
 		Method = "",
 		Function = "",
@@ -27,6 +27,5 @@ require('lspkind').init({
 		Event = "",
 		Operator = "",
 		TypeParameter = ""
-    },
+	},
 })
-
