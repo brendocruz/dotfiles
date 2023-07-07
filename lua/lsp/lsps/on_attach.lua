@@ -18,8 +18,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', '<space>q', formatFunction, bufopts)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set('n', '<space>df', vim.diagnostic.goto_next, bufopts)
-	vim.keymap.set('n', '<space>dF', vim.diagnostic.goto_prev, bufopts)
+	vim.keymap.set('n', '[d', vim.diagnostic.goto_next, bufopts)
+	vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, bufopts)
 	vim.keymap.set('n', '<space>d', '<CMD>Telescope diagnostics<CR>', bufopts)
 
 	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -43,6 +43,9 @@ local on_attach = function(client, bufnr)
 			vim.diagnostic.open_float(nil, opts)
 		end
 	})
+
+
+
 
 	-- Highlight symbol under cursor
 	-- if client.resolved_capabilities.document_highlight then
