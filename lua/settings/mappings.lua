@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap('n', 'n', 'nzzzv', opts)
 -- go to previous search result and centralize the cursor
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', opts)
 
--- set a mark in position of the cursor and 
+-- set a mark in position of the cursor and
 -- go to the beginning of the buffer
 vim.api.nvim_set_keymap('n', 'gg', 'msgg', opts)
 
@@ -27,3 +27,9 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', opts)
 -- delete next character
 vim.api.nvim_set_keymap('i', '<A-x>', '<Esc>xpXa', opts)
 vim.api.nvim_set_keymap('n', '<A-x>', 'xpX<Esc>', opts)
+
+-- move using hjkl in insert mode
+vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opts)
+vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', opts)
+vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', opts)
+vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', opts)
