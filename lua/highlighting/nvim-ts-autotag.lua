@@ -8,6 +8,7 @@ autotag.setup({
 		'html', 'xml', 'php', 'markdown', 'javascriptreact', 'typescriptreact',
 		'javascript', 'typescript'
 	},
+	enable_close_on_slash = false,
 })
 
 
