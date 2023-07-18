@@ -44,7 +44,6 @@ return packer.startup(function(use)
 
 	-- UI
 	use 'nvim-lualine/lualine.nvim'
-	use 'ThePrimeagen/harpoon'
 	use 'aserowy/tmux.nvim'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
@@ -52,6 +51,7 @@ return packer.startup(function(use)
 	-- Telescope Extensions
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use 'nvim-telescope/telescope-file-browser.nvim'
+	use 'ThePrimeagen/harpoon'
 
 	-- Other
 	use 'tpope/vim-commentary'

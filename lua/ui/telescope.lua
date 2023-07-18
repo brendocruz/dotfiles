@@ -26,6 +26,10 @@ telescope.setup({
 			hijack_netrw = true,
 			grouped = true,
 			initial_mode = 'normal',
+			hidden = {
+				file_browser = true,
+				folder_browser = true,
+			},
 			mappings = {
 				['i'] = {
 					['<C-h>'] = fb_actions.goto_parent_dir,
@@ -78,9 +82,14 @@ vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buf
 vim.keymap.set('n', '<C-f>', require('harpoon.ui').toggle_quick_menu, opts)
 vim.keymap.set('n', '<C-s>', require('harpoon.mark').add_file, opts)
 
+-- File navigation mappings
 vim.keymap.set('n', '<leader>1', function() require('harpoon.ui').nav_file(1) end, opts)
 vim.keymap.set('n', '<leader>2', function() require('harpoon.ui').nav_file(2) end, opts)
 vim.keymap.set('n', '<leader>3', function() require('harpoon.ui').nav_file(3) end, opts)
 vim.keymap.set('n', '<leader>4', function() require('harpoon.ui').nav_file(4) end, opts)
 vim.keymap.set('n', '<leader>5', function() require('harpoon.ui').nav_file(5) end, opts)
 
+-- Terminal navigation mappings
+vim.keymap.set('n', '<A-1>', function() require('harpoon.term').gotoTerminal(1) end, opts)
+vim.keymap.set('n', '<A-2>', function() require('harpoon.term').gotoTerminal(2) end, opts)
+vim.keymap.set('n', '<A-3>', function() require('harpoon.term').gotoTerminal(3) end, opts)
