@@ -70,6 +70,8 @@ telescope.load_extension('harpoon')
 -- Telescope mappings
 local builtin = require('telescope.builtin')
 local opts = { noremap = true, silent = true }
+local term = require('harpoon.term')
+local num_terms = 3
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
@@ -90,6 +92,59 @@ vim.keymap.set('n', '<leader>4', function() require('harpoon.ui').nav_file(4) en
 vim.keymap.set('n', '<leader>5', function() require('harpoon.ui').nav_file(5) end, opts)
 
 -- Terminal navigation mappings
-vim.keymap.set('n', '<A-1>', function() require('harpoon.term').gotoTerminal(1) end, opts)
-vim.keymap.set('n', '<A-2>', function() require('harpoon.term').gotoTerminal(2) end, opts)
-vim.keymap.set('n', '<A-3>', function() require('harpoon.term').gotoTerminal(3) end, opts)
+-- vim.keymap.set('n', '<A-1>', function() require('harpoon.term').gotoTerminal(1) end, opts)
+-- vim.keymap.set('n', '<A-2>', function() require('harpoon.term').gotoTerminal(2) end, opts)
+-- vim.keymap.set('n', '<A-3>', function() require('harpoon.term').gotoTerminal(3) end, opts)
+
+function GetSelectText()
+	local mode = vim.api.nvim_get_mode().mode
+	if mode ~= 'V' and mode ~= 'v' then
+		return nil
+	end
+
+	local vstart = vim.fn.getpos("'<")
+	local vend = vim.fn.getpos("'>")
+
+	local start_row = vstart[2]
+	local start_col = vstart[3]
+	local end_row = vend[2]
+	local end_col = vend[3]
+
+	local lines
+	if mode == 'V' then
+		lines = vim.fn.getline(start_row, end_row)
+	elseif mode == 'v' then
+		print('-------------------------')
+		print('START: ', vim.inspect(vstart))
+		print('END: ', vim.inspect(vend))
+		lines = vim.api.nvim_buf_get_text(
+			0, start_row - 1, start_col - 1, end_row - 1, end_col, {}
+		)
+	end
+
+	local text = ''
+	for index = 1, #lines do
+		text = text .. lines[index] .. '\n'
+	end
+
+	return text
+end
+
+function SendCommandToTerminal(index, text)
+	term.sendCommand(index, text)
+	term.gotoTerminal(index)
+end
+
+for index = 1, num_terms do
+	local cmd_hotkey = string.format('<C-A-%s>', index)
+	local term_hotkey = string.format('<A-%s>', index)
+
+	vim.keymap.set('n', term_hotkey, function()
+		term.gotoTerminal(index)
+	end, opts)
+
+	vim.keymap.set('v', cmd_hotkey, function()
+		local text = GetSelectText()
+		SendCommandToTerminal(index, text)
+	end, opts)
+end
