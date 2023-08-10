@@ -11,7 +11,7 @@ telescope.setup({
 	defaults = {
 		prompt_prefix = '$ ',
 		file_ignore_patterns = {
-			'node_modules', 'dist',
+			'node_modules', 'dist', 'node_modules/**/*'
 		},
 	},
 	extensions = {
@@ -136,14 +136,15 @@ function SendCommandToTerminal(index, text)
 end
 
 for index = 1, num_terms do
-	local cmd_hotkey = string.format('<C-A-%s>', index)
 	local term_hotkey = string.format('<A-%s>', index)
+	local cmd_hotkey = string.format('<C-%s>', index)
 
 	vim.keymap.set('n', term_hotkey, function()
 		term.gotoTerminal(index)
 	end, opts)
 
 	vim.keymap.set('v', cmd_hotkey, function()
+		print(1)
 		local text = GetSelectText()
 		SendCommandToTerminal(index, text)
 	end, opts)
