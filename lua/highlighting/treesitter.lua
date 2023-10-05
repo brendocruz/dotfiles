@@ -20,6 +20,7 @@ configs.setup({
 		'html',
 		'php',
 		'query',
+		'elixir',
 	},
 	sync_install = false,
 	auto_install = true,

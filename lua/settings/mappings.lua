@@ -29,7 +29,7 @@ vim.api.nvim_set_keymap('i', '<A-x>', '<Esc>xpXa', opts)
 vim.api.nvim_set_keymap('n', '<A-x>', 'xpX<Esc>', opts)
 
 -- move using hjkl in insert mode
-vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opts)
-vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', opts)
-vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', opts)
-vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', opts)
+-- vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', opts)
+-- vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', opts)
+-- vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', opts)
+-- vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', opts)

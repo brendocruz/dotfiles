@@ -1,3 +1,6 @@
+local status, lspkind = pcall(require, 'lspkind')
+if not status then return end
+
 require('lspkind').init({
 	mode = 'symbol_text',
 	preset = 'codicons',

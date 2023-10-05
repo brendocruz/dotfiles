@@ -73,6 +73,16 @@ local opts = { noremap = true, silent = true }
 local term = require('harpoon.term')
 local num_terms = 3
 
+
+-- Search for my cookbook files.
+vim.keymap.set('n', '<leader>fh', function()
+	builtin.live_grep({
+		search_dirs = { '~/Documentos/Projetos/Cookbook' },
+		cwd = '~/Documentos/Projetos/Cookbook',
+	})
+end, opts)
+
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>gf', builtin.git_files, opts)

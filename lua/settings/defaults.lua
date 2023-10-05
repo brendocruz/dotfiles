@@ -16,6 +16,7 @@ vim.opt.linebreak  = true
 -- SEARCH
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.iskeyword = '@,48-57,_,192-255,ã,õ,ñ'
 
 -- SPLIT AND SCROLL
 vim.opt.splitbelow = true

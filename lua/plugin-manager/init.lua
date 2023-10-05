@@ -35,7 +35,11 @@ return packer.startup(function(use)
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lsp'
-	use 'L3MON4D3/LuaSnip'
+	use({
+		"L3MON4D3/LuaSnip",
+		version = "2.*",
+		build = "make install_jsregexp"
+	})
 	use 'saadparwaiz1/cmp_luasnip'
 
 	-- Icons
@@ -59,6 +63,7 @@ return packer.startup(function(use)
 	use 'windwp/nvim-autopairs'
 	use 'windwp/nvim-ts-autotag'
 	use 'kylechui/nvim-surround'
+	use 'junegunn/vim-easy-align'
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -69,4 +74,5 @@ return packer.startup(function(use)
 		end,
 	}
 	use 'dstein64/vim-startuptime'
+
 end)

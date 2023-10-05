@@ -4,8 +4,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local tsserver_plugins = {
 	{
-		name = 'typescript-styled-plugin',
-		location = '/usr/lib/node_modules/typescript-styled-plugin',
+		name = '@styled/typescript-styled-plugin',
+		location = '/usr/lib/node_modules/@styled/typescript-styled-plugin',
 	},
 };
 
