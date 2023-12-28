@@ -12,6 +12,8 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smarttab   = true
 vim.opt.linebreak  = true
+-- vim.opt.textwidth   = 80
+vim.opt.colorcolumn = '80'
 
 -- SEARCH
 vim.opt.hlsearch = true

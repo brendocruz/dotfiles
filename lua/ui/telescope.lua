@@ -77,8 +77,8 @@ local num_terms = 3
 -- Search for my cookbook files.
 vim.keymap.set('n', '<leader>fh', function()
 	builtin.live_grep({
-		search_dirs = { '~/Documentos/Projetos/Cookbook' },
-		cwd = '~/Documentos/Projetos/Cookbook',
+		search_dirs = { '~/Documentos/Projetos/Repos/Cookbook' },
+		cwd = '~/Documentos/Projetos/Repos/Cookbook',
 	})
 end, opts)
 

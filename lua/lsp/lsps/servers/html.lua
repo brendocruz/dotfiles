@@ -5,7 +5,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 local init_options = {
-	configurationSection = {'html', 'css', 'javascript'},
+	configurationSection = { 'html', 'css', 'javascript' },
 	embeddedLanguages = {
 		css = true,
 		javascript = true,
@@ -15,14 +15,16 @@ local init_options = {
 
 local settings = {
 	html = {
-		autoClosingTags = true,
+		autoClosingTags = false,
 		format = {
 			enable = true,
-			indentInnerHtml = true,
+			indentInnerHtml = false,
 			extraLiners = '',
 			templating = true,
-		}
-	}
+			wrapLineLength = vim.api.nvim_get_option('textwidth'),
+			wrapAttributes = 'force-expand-multiline',
+		},
+	},
 }
 
 return {

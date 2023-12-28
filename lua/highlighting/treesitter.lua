@@ -30,6 +30,9 @@ configs.setup({
 	},
 	indent = {
 		enable = true,
+		disable = {
+			'html',
+		},
 	},
 	-- nvim-ts-rainbow
 	-- rainbow = {
