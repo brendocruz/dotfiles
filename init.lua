@@ -4,7 +4,7 @@ require('settings')
 -- Plugins
 require('plugin-manager')
 require('color-scheme')
-require('lsp')
+require('lsps')
 require('autocompletation')
 require('ui')
 require('highlighting')

@@ -28,6 +28,7 @@ local settings = {
 }
 
 return {
+	autostart = false,
 	on_attach = function(client, buffer)
 		client.server_capabilities.documentFormattingProvider = true
 		on_attach(client, buffer)

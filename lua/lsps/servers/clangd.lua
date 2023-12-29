@@ -2,6 +2,7 @@ local on_attach = require('lsp.lsps.on_attach')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 return {
+	autostart = false,
 	on_attach = function(client, buffer)
 		client.server_capabilities.documentFormattingProvider = true
 		on_attach(client, buffer)

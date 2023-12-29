@@ -1,4 +1,4 @@
-local on_attach = require('lsp.lsps.on_attach')
+local on_attach = require('lsps.on_attach')
 
 -- local runtime_path = vim.split(package.path, ';')
 -- table.insert(runtime_path, 'lua/?.lua')
@@ -59,6 +59,7 @@ local settings = {
 -- }
 
 return {
+	autostart = false,
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = settings,

@@ -1,17 +1,14 @@
--- UI Customization
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
-
 -- Customizing how diagnostics are displayed
--- :help vim.diagnostic.config for more advanced customization options.
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 vim.diagnostic.config({
 	-- Show source in diagnostics
+	-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 	virtual_text = {
 		source = 'always',
 	},
 	float = {
 		source = 'always',
 	},
-
 	signs = true,
 	underline = true,
 	update_in_insert = true,
@@ -21,25 +18,25 @@ vim.diagnostic.config({
 
 
 
-
 -- Show line diagnostics automatically in hover window
--- You will likely want to reduce updatetime which affects CursorHold
--- note: this setting is global and should be set only once
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 vim.o.updatetime = 250
--- For diagnostics for specific cursor position
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-
-
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+	group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+	end
+})
 
 
 
 -- Go-to definition in a split window
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 local function goto_definition(split_cmd)
 	local util = vim.lsp.util
 	local log = require('vim.lsp.log')
 	local api = vim.api
 
-	-- note, this handler style is for neovim 0.5.1/0.6, if on 0.5, call with function(_, method, result)
 	local handler = function(_, result, ctx)
 		if result == nil or vim.tbl_isempty(result) then
 			local _ = log.info() and log.info(ctx.method, 'No location found')
@@ -51,34 +48,21 @@ local function goto_definition(split_cmd)
 		end
 
 		if vim.tbl_islist(result) then
-			util.jump_to_location(result[1])
+			util.jump_to_location(result[1], 'utf-8')
 
 			if #result > 1 then
-				util.set_qflist(util.locations_to_items(result))
+				util.set_qflist(util.locations_to_items(result, ''))
 				api.nvim_command('copen')
 				api.nvim_command('wincmd p')
 			end
 		else
-			util.jump_to_location(result)
+			util.jump_to_location(result, 'utf-8')
 		end
 	end
 
 	return handler
 end
-
 vim.lsp.handlers['textDocument/definition'] = goto_definition('split')
-
-
-
-
-
--- Change prefix/character preceding the diagnostics' virtual text
-vim.diagnostic.config({
-	virtual_text = {
-		prefix = '■', -- Could be '●', '▎', 'x'
-	}
-})
-
 
 
 

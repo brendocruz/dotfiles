@@ -1,0 +1,5 @@
+require('lsps.mason')
+require('lsps.mason-lspconfig')
+require('lsps.lspconfig')
+require('lsps.lspkind')
+require('lsps.start')

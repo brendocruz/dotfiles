@@ -11,6 +11,7 @@ local tsserver_plugins = {
 
 
 return {
+	autostart = false,
 	root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json'),
 	init_options = {
 		plugins = tsserver_plugins,
