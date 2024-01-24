@@ -59,22 +59,19 @@ telescope.setup({
 
 
 
--- Load Extensions
+-- Load Telescope Extensions
 telescope.load_extension('fzf')
 telescope.load_extension('file_browser')
 telescope.load_extension('harpoon')
 
 
 
-
 -- Telescope mappings
 local builtin = require('telescope.builtin')
 local opts = { noremap = true, silent = true }
-local term = require('harpoon.term')
-local num_terms = 3
 
 
--- Search for my cookbook files.
+-- Search for file in my cookbook folder (Find Help).
 vim.keymap.set('n', '<leader>fh', function()
 	builtin.live_grep({
 		search_dirs = { '~/Documentos/Projetos/Repos/Cookbook' },
@@ -83,11 +80,32 @@ vim.keymap.set('n', '<leader>fh', function()
 end, opts)
 
 
+-- Search for files (Find Files)
 vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
+-- List open buffers (Buffer)
 vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
+-- Search for git files (Git Files)
 vim.keymap.set('n', '<leader>gf', builtin.git_files, opts)
-vim.keymap.set('n', '<leader>cb', builtin.current_buffer_fuzzy_find, opts)
+-- Search for a string in the current buffer (Current Buffer Find)
+vim.keymap.set('n', '<leader>cbf', builtin.current_buffer_fuzzy_find, opts)
+-- Search for a string in the current project (Current Project Find)
+vim.keymap.set('n', '<leader>cpf', builtin.live_grep, opts)
+-- Open file browser (File Browser)
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<cr>', opts)
+
+
+-- Search for the word under the cursor in the current 
+-- project (Project Word Search)
+vim.keymap.set('n', '<leader>pws', function()
+	local word = vim.fn.expand('<cword>')
+	builtin.grep_string({ search = word })
+end)
+-- Search for the WORD under the cursor in the current 
+-- project (Project WORD Search)
+vim.keymap.set('n', '<leader>pWs', function()
+	local word = vim.fn.expand('<cWORD>')
+	builtin.grep_string({ search = word })
+end)
 
 
 -- Harpoon mappings
@@ -101,10 +119,12 @@ vim.keymap.set('n', '<leader>3', function() require('harpoon.ui').nav_file(3) en
 vim.keymap.set('n', '<leader>4', function() require('harpoon.ui').nav_file(4) end, opts)
 vim.keymap.set('n', '<leader>5', function() require('harpoon.ui').nav_file(5) end, opts)
 
--- Terminal navigation mappings
--- vim.keymap.set('n', '<A-1>', function() require('harpoon.term').gotoTerminal(1) end, opts)
--- vim.keymap.set('n', '<A-2>', function() require('harpoon.term').gotoTerminal(2) end, opts)
--- vim.keymap.set('n', '<A-3>', function() require('harpoon.term').gotoTerminal(3) end, opts)
+
+
+-- Harpoon mapping
+local term = require('harpoon.term')
+local num_terms = 4
+
 
 function GetSelectText()
 	local mode = vim.api.nvim_get_mode().mode
@@ -124,9 +144,6 @@ function GetSelectText()
 	if mode == 'V' then
 		lines = vim.fn.getline(start_row, end_row)
 	elseif mode == 'v' then
-		print('-------------------------')
-		print('START: ', vim.inspect(vstart))
-		print('END: ', vim.inspect(vend))
 		lines = vim.api.nvim_buf_get_text(
 			0, start_row - 1, start_col - 1, end_row - 1, end_col, {}
 		)
@@ -145,16 +162,19 @@ function SendCommandToTerminal(index, text)
 	term.gotoTerminal(index)
 end
 
+
+
 for index = 1, num_terms do
 	local term_hotkey = string.format('<A-%s>', index)
 	local cmd_hotkey = string.format('<C-%s>', index)
 
+	-- Terminal mappings
 	vim.keymap.set('n', term_hotkey, function()
 		term.gotoTerminal(index)
 	end, opts)
 
+	-- Send command to terminal mappings
 	vim.keymap.set('v', cmd_hotkey, function()
-		print(1)
 		local text = GetSelectText()
 		SendCommandToTerminal(index, text)
 	end, opts)

@@ -48,7 +48,6 @@ return packer.startup(function(use)
 
 	-- UI
 	use 'nvim-lualine/lualine.nvim'
-	use 'aserowy/tmux.nvim'
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
 

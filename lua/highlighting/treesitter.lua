@@ -32,6 +32,9 @@ configs.setup({
 		enable = true,
 		disable = {
 			'html',
+			'python',
+			'php',
+			'lua',
 		},
 	},
 	-- nvim-ts-rainbow
