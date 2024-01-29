@@ -1,77 +1,70 @@
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-	return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-packer.init({
-	display = {
-		open_fn = function()
-			return require('packer.util').float({
-				border = 'none'
-			})
-		end,
-	},
-})
-
-return packer.startup(function(use)
-	-- Managers
-	use 'wbthomason/packer.nvim'
-
-	-- Color Shemes
-	use 'EdenEast/nightfox.nvim'
-
-	-- LSP Support
-	use 'neovim/nvim-lspconfig'
-	use 'williamboman/mason.nvim'
-	use 'williamboman/mason-lspconfig.nvim'
-
-	-- LSPs
-	use 'yuchanns/phpfmt.nvim'
-	use 'folke/neodev.nvim'
+require("lazy").setup({
+	-- Color Scheme
+	'EdenEast/nightfox.nvim',
 
 	-- Autocompletion
-	use 'hrsh7th/nvim-cmp'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use({
+	'hrsh7th/nvim-cmp',
+	'hrsh7th/cmp-buffer',
+	'hrsh7th/cmp-path',
+	'hrsh7th/cmp-cmdline',
+	'hrsh7th/cmp-nvim-lsp',
+	{
 		"L3MON4D3/LuaSnip",
-		version = "2.*",
-		build = "make install_jsregexp"
-	})
-	use 'saadparwaiz1/cmp_luasnip'
+		version = "v2.*",
+		build = "make install_jsregexp",
+	},
+	'saadparwaiz1/cmp_luasnip',
+
+	-- LSP Support
+	'neovim/nvim-lspconfig',
+	'williamboman/mason.nvim',
+	'williamboman/mason-lspconfig.nvim',
+
+	-- LSPs
+	'yuchanns/phpfmt.nvim',
+	'folke/neodev.nvim',
 
 	-- Icons
-	use 'onsails/lspkind.nvim'
-	use 'kyazdani42/nvim-web-devicons'
+	'onsails/lspkind.nvim',
+	'kyazdani42/nvim-web-devicons',
 
 	-- UI
-	use 'nvim-lualine/lualine.nvim'
-	use 'nvim-lua/plenary.nvim'
-	use 'nvim-telescope/telescope.nvim'
+	'nvim-lualine/lualine.nvim',
+	'nvim-lua/plenary.nvim',
+	'nvim-telescope/telescope.nvim',
 
 	-- Telescope Extensions
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use 'nvim-telescope/telescope-file-browser.nvim'
-	use 'ThePrimeagen/harpoon'
+	{ 
+		'nvim-telescope/telescope-fzf-native.nvim', 
+		build = 'make',
+	},
+	'nvim-telescope/telescope-file-browser.nvim',
+	'ThePrimeagen/harpoon',
 
-	-- Other
-	use 'tpope/vim-commentary'
-	-- use 'p00f/nvim-ts-rainbow'
-	use 'windwp/nvim-autopairs'
-	use 'windwp/nvim-ts-autotag'
-	use 'kylechui/nvim-surround'
-	use 'junegunn/vim-easy-align'
+	-- Highlighting
+	{
+		"nvim-treesitter/nvim-treesitter", 
+		build = ":TSUpdate"
+	},
+	'windwp/nvim-autopairs',
+	'windwp/nvim-ts-autotag',
 
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = function()
-			require('nvim-treesitter.install').update({
-				with_sync = true
-			})
-		end,
-	}
-	use 'dstein64/vim-startuptime'
+	-- Others
+	'tpope/vim-commentary',
+	'kylechui/nvim-surround',
+	'junegunn/vim-easy-align',
+})
 
-end)

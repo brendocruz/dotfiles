@@ -4,6 +4,10 @@ local conf = require('telescope.config').values
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
 
+function GoToNormalMode()
+	vim.cmd('execute \"normal i\"')
+end
+
 ---@alias CustomPicker
 ---| { title: string }
 ---| { entries: { value: table } }
@@ -37,6 +41,14 @@ local create_picker = function(picker)
 				return true
 			end,
 			sorter = conf.generic_sorter(opts),
+			previewer = require('telescope.previewers').new_buffer_previewer({
+				title = 'Command',
+				define_preview = function(self, entry)
+					vim.api.nvim_buf_set_lines(self.state.bufnr, 0, -1, false, {
+						table.concat(entry.value, ' ') or ''
+					})
+				end,
+			})
 		}):find()
 	end
 end
@@ -65,9 +77,8 @@ local mypicker = {
 			ordinal = 'create virutal environmet',
 			action = function(value)
 				local strcmd = table.concat(value, ' ')
-				vim.notify('Creating virtual environment... [' .. strcmd .. ']')
-				vim.system(value)
-				vim.notify('Virtual environment created.')
+				SendCommandToTerminal(9, strcmd .. '\n')
+				GoToNormalMode()
 			end
 		},
 		{
@@ -76,15 +87,23 @@ local mypicker = {
 			ordinal = 'delete virtual environment',
 			action = function(value)
 				local strcmd = table.concat(value, ' ')
-				vim.notify('Deleting virtual environment... [' .. strcmd .. ']')
-				vim.system(value)
-				vim.notify('Virtual environment deleted.')
+				SendCommandToTerminal(9, strcmd .. '\n')
+				GoToNormalMode()
 			end
-		}
+		},
+		{
+			value = { 'source', '.venv/bin/activate' },
+			display = 'Open Activated Environment Terminal',
+			ordinal = 'Open Activated Environment Terminal',
+			action = function(value)
+				local strcmd = table.concat(value, ' ')
+				SendCommandToTerminal(9, strcmd .. '\n')
+				GoToNormalMode()
+			end
+		},
 	},
 	opts = require('telescope.themes').get_dropdown({}) or {},
 }
-
 
 return require('telescope').register_extension({
 	exports = {

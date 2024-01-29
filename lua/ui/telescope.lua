@@ -79,8 +79,10 @@ vim.keymap.set('n', '<leader>fh', function()
 	})
 end, opts)
 
+vim.keymap.set('n', '<leader>fm', ':Telescope mycommands<CR>', opts)
 
--- Search for files (Find Files)
+
+-- Search for files in the current working directory (Find Files)
 vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
 -- List open buffers (Buffer)
 vim.keymap.set('n', '<leader>b', builtin.buffers, opts)
@@ -93,15 +95,21 @@ vim.keymap.set('n', '<leader>cpf', builtin.live_grep, opts)
 -- Open file browser (File Browser)
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<cr>', opts)
 
+-- List LSP document symbols in the current workspace
+-- vim.keymap.set('n', '', builtin.lsp_workspace_symbols, opts)
+-- List Diagnostics for all open buffers
+-- vim.keymap.set('n', '', builtin.diagnostics, opts)
+
 
 -- Search for the word under the cursor in the current 
--- project (Project Word Search)
+-- working directory (Project Word Search)
 vim.keymap.set('n', '<leader>pws', function()
 	local word = vim.fn.expand('<cword>')
 	builtin.grep_string({ search = word })
 end)
+
 -- Search for the WORD under the cursor in the current 
--- project (Project WORD Search)
+-- working directory (Project WORD Search)
 vim.keymap.set('n', '<leader>pWs', function()
 	local word = vim.fn.expand('<cWORD>')
 	builtin.grep_string({ search = word })

@@ -26,7 +26,11 @@ local settings = {
 	Lua = {
 		completion = {
 			callSnippet = "Replace"
-		}
+		},
+		diagnostics = {
+			enable = false,
+			globals = { 'vim' },
+		},
 	}
 }
 
@@ -63,4 +67,5 @@ return {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = settings,
+	root_dir = require('lspconfig').util.root_pattern('.'),
 }

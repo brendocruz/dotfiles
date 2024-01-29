@@ -18,13 +18,16 @@ vim.opt.colorcolumn = '80'
 -- SEARCH
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-vim.opt.iskeyword = '@,48-57,_,192-255,ã,õ,ñ'
+vim.opt.iskeyword = '@,48-57,_,192-255,ã,õ,ñ,ç'
 
 -- SPLIT AND SCROLL
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
+
+-- STATUSLINE
+vim.opt.laststatus = 3
 
 -- ENCODING
 vim.opt.fileencoding = 'utf-8'
