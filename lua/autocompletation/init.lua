@@ -1,2 +1,2 @@
-require('autocompletation.cmp')
-require('autocompletation.luasnip')
+-- require('autocompletation.cmp')
+-- require('autocompletation.luasnip')

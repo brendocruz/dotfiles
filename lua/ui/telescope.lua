@@ -94,6 +94,8 @@ vim.keymap.set('n', '<leader>cbf', builtin.current_buffer_fuzzy_find, opts)
 vim.keymap.set('n', '<leader>cpf', builtin.live_grep, opts)
 -- Open file browser (File Browser)
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<cr>', opts)
+-- Search for help tags
+vim.keymap.set('n', '<leader>ht', builtin.help_tags, opts)
 
 -- List LSP document symbols in the current workspace
 -- vim.keymap.set('n', '', builtin.lsp_workspace_symbols, opts)

@@ -24,11 +24,11 @@ require("neodev").setup({
 
 local settings = {
 	Lua = {
-		completion = {
-			callSnippet = "Replace"
-		},
+		-- completion = {
+		-- 	callSnippet = "Replace"
+		-- },
 		diagnostics = {
-			enable = false,
+			enable = true,
 			globals = { 'vim' },
 		},
 	}

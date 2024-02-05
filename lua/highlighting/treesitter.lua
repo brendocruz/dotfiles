@@ -21,6 +21,7 @@ configs.setup({
 		'php',
 		'query',
 		'elixir',
+		'ocaml',
 	},
 	sync_install = false,
 	auto_install = true,
