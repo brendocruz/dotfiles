@@ -1,4 +1,4 @@
-local on_attach = require('lsps.on_attach')
+local on_attach = require('lsp.on_attach')
 
 -- local runtime_path = vim.split(package.path, ';')
 -- table.insert(runtime_path, 'lua/?.lua')
@@ -12,7 +12,7 @@ if cmp_status then
 	capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
-require("neodev").setup({
+-- require("neodev").setup({
 	-- add any options here, or leave empty to use the default settings
 	-- override = function(root_dir, library)
 	-- 	if require("neodev.util").has_file(root_dir, "/etc/nixos") then
@@ -20,7 +20,7 @@ require("neodev").setup({
 	-- 		library.plugins = true
 	-- 	end
 	-- end,
-})
+-- })
 
 local settings = {
 	Lua = {
@@ -67,5 +67,5 @@ return {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = settings,
-	root_dir = require('lspconfig').util.root_pattern('.'),
+	root_dir = require('lspconfig').util.root_pattern('lua', '.'),
 }

@@ -13,17 +13,26 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Color Scheme
-	'EdenEast/nightfox.nvim',
+	{
+		'EdenEast/nightfox.nvim',
+		config = function() require('colorscheme.conf-nightfox') end
+	},
 
 	-- Autocompletion
 	{
 		'hrsh7th/nvim-cmp',
-		event = { "BufReadPost", "BufNewFile" },
+		dependencies = {
+			'L3MON4D3/LuaSnip',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-path',
+			'hrsh7th/cmp-cmdline',
+			'hrsh7th/cmp-nvim-lsp',
+			'saadparwaiz1/cmp_luasnip',
+			'onsails/lspkind.nvim',
+		},
 		config = function()
-			require('autocompletation.cmp')
-			require('autocompletation.luasnip')
-		end,
-		lazy = true,
+			require('autocompletation.conf-cmp')
+		end
 	},
 	'hrsh7th/cmp-buffer',
 	'hrsh7th/cmp-path',
@@ -31,9 +40,10 @@ require("lazy").setup({
 	'hrsh7th/cmp-nvim-lsp',
 	'saadparwaiz1/cmp_luasnip',
 	{
-		"L3MON4D3/LuaSnip",
-		version = "v2.*",
-		build = "make install_jsregexp",
+		'L3MON4D3/LuaSnip',
+		version = 'v2.*',
+		build = 'make install_jsregexp',
+		config = function() require('autocompletation.conf-luasnip') end
 	},
 
 	-- LSP Support
@@ -42,32 +52,40 @@ require("lazy").setup({
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		config = function()
-			require('lsps.mason')
-			require('lsps.lspconfig')
-			require('lsps.start')
+			require('lsp.conf-mason')
+			require('lsp.conf-mason-lspconfig')
+			require('lsp.conf-lspconfig')
+			require('lsp.start-servers')
 		end,
 	},
-	{
-		'williamboman/mason.nvim',
-		lazy = true
-	},
-	{
-		'williamboman/mason-lspconfig.nvim',
-		lazy = true
-	},
+	{ 'williamboman/mason.nvim',           lazy = true, },
+	{ 'williamboman/mason-lspconfig.nvim', lazy = true, },
 
 	-- LSPs
-	'yuchanns/phpfmt.nvim',
-	'folke/neodev.nvim',
+	-- 'yuchanns/phpfmt.nvim',
 
 	-- Icons
-	'onsails/lspkind.nvim',
-	'kyazdani42/nvim-web-devicons',
+	{
+		'onsails/lspkind.nvim',
+		config = function() require('lsp.conf-lspkind') end,
+	},
+	{
+		'kyazdani42/nvim-web-devicons',
+		config = function()
+			require('nvim-web-devicons').setup()
+		end,
+	},
 
 	-- UI
-	'nvim-lualine/lualine.nvim',
+	{
+		'nvim-lualine/lualine.nvim',
+		config = function() require('ui.lualine') end
+	},
 	'nvim-lua/plenary.nvim',
-	'nvim-telescope/telescope.nvim',
+	{
+		'nvim-telescope/telescope.nvim',
+		config = function() require('ui.telescope') end
+	},
 
 	-- Telescope Extensions
 	{
@@ -79,28 +97,47 @@ require("lazy").setup({
 
 	-- Highlighting
 	{
-		"nvim-treesitter/nvim-treesitter",
+		'nvim-treesitter/nvim-treesitter',
 		event = { "BufReadPost", "BufNewFile" },
+		config = function() require('highlighting.conf-treesitter') end,
 		lazy = true,
-		config = function()
-			require('highlighting.treesitter')
-		end,
 	},
-	'windwp/nvim-autopairs',
+
+	-- Others
+	{
+		'windwp/nvim-autopairs',
+		lazy = true,
+	},
 	{
 		'windwp/nvim-ts-autotag',
 		lazy = true,
 		ft = { 'html', 'typescriptreact', 'javascriptreact' },
 		config = function()
-			require('others.nvim-ts-autotag')
-		end
+			require('others.conf-nvim-ts-autotag')
+		end,
 	},
-
-	-- Others
-	'tpope/vim-commentary',
-	'kylechui/nvim-surround',
+	{
+		'tpope/vim-commentary',
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
+		config = function()
+			require('others.conf-nvim-autopairs')
+		end,
+	},
+	{
+		'kylechui/nvim-surround',
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
+		config = function()
+			require('others.conf-nvim-surround')
+		end,
+	},
 	{
 		'junegunn/vim-easy-align',
+		lazy = true,
 		ft = { 'text' },
+		config = function()
+			require('others.conf-vim-easy-align')
+		end,
 	},
 })

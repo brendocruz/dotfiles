@@ -1,4 +1,4 @@
-local on_attach = require('lsps.on_attach');
+local on_attach = require('lsp.on_attach');
 local lspconfig = require('lspconfig')
 
 return {

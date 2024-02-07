@@ -4,7 +4,7 @@ if not (lspconfig_ok or lspinstall_ok) then return end
 
 -- Run server configurations
 for _, server in pairs(lspinstall.get_installed_servers()) do
-	local config_ok, config = pcall(require, 'lsps.servers.' .. server)
+	local config_ok, config = pcall(require, 'lsp.servers.' .. server)
 	if config_ok then lspconfig[server].setup(config) end
 end
 
