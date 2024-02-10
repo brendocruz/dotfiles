@@ -5,8 +5,8 @@ end
 
 nightfox.setup({
 	options = {
-		transparent = true,
+		transparent = false,
 	},
 })
 
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme duskfox")

@@ -12,24 +12,22 @@ if cmp_status then
 	capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
--- require("neodev").setup({
-	-- add any options here, or leave empty to use the default settings
-	-- override = function(root_dir, library)
-	-- 	if require("neodev.util").has_file(root_dir, "/etc/nixos") then
-	-- 		library.enabled = true
-	-- 		library.plugins = true
-	-- 	end
-	-- end,
--- })
+require("neodev").setup({ })
 
 local settings = {
 	Lua = {
 		-- completion = {
 		-- 	callSnippet = "Replace"
 		-- },
+		-- completion = {
+		-- 	enable = true,
+		-- },
 		diagnostics = {
 			enable = true,
 			globals = { 'vim' },
+		},
+		format = {
+			enable = true,
 		},
 	}
 }
@@ -67,5 +65,5 @@ return {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = settings,
-	root_dir = require('lspconfig').util.root_pattern('lua', '.'),
+	root_dir = require('lspconfig').util.root_pattern('lua/../init.lua', '.'),
 }

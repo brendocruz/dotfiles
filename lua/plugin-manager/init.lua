@@ -58,8 +58,19 @@ require("lazy").setup({
 			require('lsp.start-servers')
 		end,
 	},
-	{ 'williamboman/mason.nvim',           lazy = true, },
-	{ 'williamboman/mason-lspconfig.nvim', lazy = true, },
+	{
+		'williamboman/mason.nvim',
+		lazy = true,
+	},
+	{
+		'williamboman/mason-lspconfig.nvim',
+		lazy = true,
+	},
+	{
+		'folke/neodev.nvim',
+		lazy = true,
+	},
+
 
 	-- LSPs
 	-- 'yuchanns/phpfmt.nvim',
@@ -79,7 +90,8 @@ require("lazy").setup({
 	-- UI
 	{
 		'nvim-lualine/lualine.nvim',
-		config = function() require('ui.lualine') end
+		dependencies = { 'EdenEast/nightfox.nvim', },
+		config = function() require('ui.lualine') end,
 	},
 	'nvim-lua/plenary.nvim',
 	{
@@ -140,4 +152,12 @@ require("lazy").setup({
 			require('others.conf-vim-easy-align')
 		end,
 	},
+
+	-- My Plugins
+	{
+		dir = '/home/jbk/Documentos/Projetos/Lua/Ambiente',
+		config = function()
+			require('ambiente').setup()
+		end
+	}
 })
