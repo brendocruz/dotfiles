@@ -19,5 +19,5 @@ return {
 	autostart = false,
 	on_attach = on_attach,
 	single_file_support = true,
-	-- root_dir = lspconfig.util.root_pattern('.'),
+	root_dir = lspconfig.util.root_pattern('.'),
 }

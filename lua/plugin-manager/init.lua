@@ -22,12 +22,10 @@ require("lazy").setup({
 	{
 		'hrsh7th/nvim-cmp',
 		dependencies = {
-			'L3MON4D3/LuaSnip',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
 			'hrsh7th/cmp-cmdline',
 			'hrsh7th/cmp-nvim-lsp',
-			'saadparwaiz1/cmp_luasnip',
 			'onsails/lspkind.nvim',
 		},
 		config = function()
@@ -38,13 +36,6 @@ require("lazy").setup({
 	'hrsh7th/cmp-path',
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/cmp-nvim-lsp',
-	'saadparwaiz1/cmp_luasnip',
-	{
-		'L3MON4D3/LuaSnip',
-		version = 'v2.*',
-		build = 'make install_jsregexp',
-		config = function() require('autocompletation.conf-luasnip') end
-	},
 
 	-- LSP Support
 	{
@@ -154,10 +145,10 @@ require("lazy").setup({
 	},
 
 	-- My Plugins
-	{
-		dir = '/home/jbk/Documentos/Projetos/Lua/Ambiente',
-		config = function()
-			require('ambiente').setup()
-		end
-	}
+	-- {
+	-- 	dir = '/home/jbk/Documentos/Projetos/Lua/Ambiente',
+	-- 	config = function()
+	-- 		require('ambiente').setup()
+	-- 	end
+	-- }
 })
