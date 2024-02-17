@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -62,10 +62,6 @@ require("lazy").setup({
 		lazy = true,
 	},
 
-
-	-- LSPs
-	-- 'yuchanns/phpfmt.nvim',
-
 	-- Icons
 	{
 		'onsails/lspkind.nvim',
@@ -108,10 +104,6 @@ require("lazy").setup({
 
 	-- Others
 	{
-		'windwp/nvim-autopairs',
-		lazy = true,
-	},
-	{
 		'windwp/nvim-ts-autotag',
 		lazy = true,
 		ft = { 'html', 'typescriptreact', 'javascriptreact' },
@@ -123,17 +115,6 @@ require("lazy").setup({
 		'tpope/vim-commentary',
 		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require('others.conf-nvim-autopairs')
-		end,
-	},
-	{
-		'kylechui/nvim-surround',
-		lazy = true,
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require('others.conf-nvim-surround')
-		end,
 	},
 	{
 		'junegunn/vim-easy-align',
