@@ -6,6 +6,7 @@ local on_attach = require('lsp.on_attach')
 
 -- LSP Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = false
 
 local cmp_status, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
 if cmp_status then

@@ -36,6 +36,11 @@ configs.setup({
 			'python',
 			'php',
 			'lua',
+			'javascript',
+			'tsx',
+			'json',
+			'jsdoc',
+			'typescript',
 		},
 	},
 	playground = {

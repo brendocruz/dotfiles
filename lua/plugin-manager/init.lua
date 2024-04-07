@@ -27,6 +27,8 @@ require("lazy").setup({
 			'hrsh7th/cmp-cmdline',
 			'hrsh7th/cmp-nvim-lsp',
 			'onsails/lspkind.nvim',
+			'L3MON4D3/LuaSnip',
+			'saadparwaiz1/cmp_luasnip',
 		},
 		config = function()
 			require('autocompletation.conf-cmp')
@@ -36,6 +38,8 @@ require("lazy").setup({
 	'hrsh7th/cmp-path',
 	'hrsh7th/cmp-cmdline',
 	'hrsh7th/cmp-nvim-lsp',
+	'L3MON4D3/LuaSnip',
+	'saadparwaiz1/cmp_luasnip',
 
 	-- LSP Support
 	{
@@ -115,6 +119,7 @@ require("lazy").setup({
 		'tpope/vim-commentary',
 		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
+		config = function() end,
 	},
 	{
 		'junegunn/vim-easy-align',
@@ -126,10 +131,10 @@ require("lazy").setup({
 	},
 
 	-- My Plugins
-	-- {
-	-- 	dir = '/home/jbk/Documentos/Projetos/Lua/Ambiente',
-	-- 	config = function()
-	-- 		require('ambiente').setup()
-	-- 	end
-	-- }
+	{
+		dir = '/home/jbk/Documentos/Projetos/Lua/MeuAmbiente',
+		config = function()
+			require('meuambiente').setup()
+		end
+	}
 })

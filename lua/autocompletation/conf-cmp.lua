@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local lspkind = require('lspkind')
+local luasnip = require("luasnip")
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
@@ -17,16 +18,24 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
-		['<Tab>'] = function(fallback)
-			if not cmp.select_next_item() then
+		['<Tab>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
 				fallback()
 			end
-		end,
-		['<S-Tab>'] = function(fallback)
-			if not cmp.select_prev_item() then
+		end, { 'i', 's' }),
+		['<S-Tab>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
 				fallback()
 			end
-		end,
+		end, { 'i', 's' })
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
@@ -36,6 +45,7 @@ cmp.setup({
 				keyword_pattern = [[\k\+]],
 			},
 		},
+		{ name = 'luasnip' },
 		{ name = 'path' },
 	}),
 	formatting = {
@@ -51,6 +61,13 @@ cmp.setup({
 			}
 		})
 	},
+
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end
+	},
+
 })
 
 -- Use buffer source for `/` and `?`

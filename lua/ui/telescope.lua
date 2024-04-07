@@ -175,13 +175,13 @@ end
 
 
 for index = 1, num_terms do
-	local term_hotkey = string.format('<A-%s>', index)
+	-- local term_hotkey = string.format('<A-%s>', index)
 	local cmd_hotkey = string.format('<C-%s>', index)
 
 	-- Terminal mappings
-	vim.keymap.set('n', term_hotkey, function()
-		term.gotoTerminal(index)
-	end, opts)
+	-- vim.keymap.set('n', term_hotkey, function()
+	-- 	term.gotoTerminal(index)
+	-- end, opts)
 
 	-- Send command to terminal mappings
 	vim.keymap.set('v', cmd_hotkey, function()
