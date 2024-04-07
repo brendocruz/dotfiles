@@ -51,6 +51,7 @@ require("lazy").setup({
 			require('lsp.conf-mason-lspconfig')
 			require('lsp.conf-lspconfig')
 			require('lsp.start-servers')
+			require('lsp.conf-none-ls')
 		end,
 	},
 	{
@@ -63,6 +64,10 @@ require("lazy").setup({
 	},
 	{
 		'folke/neodev.nvim',
+		lazy = true,
+	},
+	{
+		'nvimtools/none-ls.nvim',
 		lazy = true,
 	},
 
