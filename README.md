@@ -1,1 +1,1 @@
-My NeoVim plugins set up.
+My dotfiles.
