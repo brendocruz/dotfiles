@@ -17,7 +17,7 @@ return {
 		plugins = tsserver_plugins,
 	},
 	on_attach = function(client, buffer)
-		client.server_capabilities.documentFormattingProvider = true
+		client.server_capabilities.documentFormattingProvider = false
 		on_attach(client, buffer)
 	end,
 	capabilities = capabilities,

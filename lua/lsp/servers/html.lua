@@ -23,7 +23,7 @@ local settings = {
 			templating = true,
 			-- wrapLineLength = vim.api.nvim_get_option('textwidth'),
 			wrapLineLength = 80,
-			wrapAttributes = 'force-expand-multiline',
+			-- wrapAttributes = 'force-expand-multiline',
 		},
 	},
 }

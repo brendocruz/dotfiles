@@ -3,9 +3,6 @@ if not status_ok then
 	return
 end
 
-local fb_actions = telescope.extensions.file_browser.actions
-local actions = require "telescope.actions"
-
 
 telescope.setup({
 	defaults = {
@@ -21,32 +18,6 @@ telescope.setup({
 			override_file_sorter = true,
 			case_mode = 'smart_case',
 		},
-		file_browser = {
-			theme = 'ivy',
-			hijack_netrw = true,
-			grouped = true,
-			initial_mode = 'normal',
-			hidden = {
-				file_browser = true,
-				folder_browser = true,
-			},
-			mappings = {
-				['i'] = {
-					['<C-h>'] = fb_actions.goto_parent_dir,
-					['<C-l>'] = actions.select_default,
-					['<C-H>'] = fb_actions.toggle_hidden,
-				},
-				['n'] = {
-					['c'] = false,
-					['cc'] = fb_actions.create,
-					['d'] = false,
-					['dd'] = fb_actions.remove,
-					['h'] = fb_actions.goto_parent_dir,
-					['l'] = actions.select_default,
-					['H'] = fb_actions.toggle_hidden,
-				},
-			}
-		},
 	},
 	pickers = {
 		find_files = {
@@ -61,7 +32,6 @@ telescope.setup({
 
 -- Load Telescope Extensions
 telescope.load_extension('fzf')
-telescope.load_extension('file_browser')
 telescope.load_extension('harpoon')
 
 
@@ -93,24 +63,26 @@ vim.keymap.set('n', '<leader>cbf', builtin.current_buffer_fuzzy_find, opts)
 -- Search for a string in the current project (Current Project Find)
 vim.keymap.set('n', '<leader>cpf', builtin.live_grep, opts)
 -- Open file browser (File Browser)
-vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buffer=true<cr>', opts)
+vim.keymap.set('n', '<leader>fb', ':Explore<cr>', opts)
 -- Search for help tags
 vim.keymap.set('n', '<leader>ht', builtin.help_tags, opts)
 
--- List LSP document symbols in the current workspace
--- vim.keymap.set('n', '', builtin.lsp_workspace_symbols, opts)
+-- list lsp symbols in the current workspace
+vim.keymap.set('n', '<leader>lws', builtin.lsp_workspace_symbols, opts)
+-- list lsp symbols in the current document
+vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, opts)
 -- List Diagnostics for all open buffers
 -- vim.keymap.set('n', '', builtin.diagnostics, opts)
 
 
--- Search for the word under the cursor in the current 
+-- Search for the word under the cursor in the current
 -- working directory (Project Word Search)
 vim.keymap.set('n', '<leader>pws', function()
 	local word = vim.fn.expand('<cword>')
 	builtin.grep_string({ search = word })
 end)
 
--- Search for the WORD under the cursor in the current 
+-- Search for the WORD under the cursor in the current
 -- working directory (Project WORD Search)
 vim.keymap.set('n', '<leader>pWs', function()
 	local word = vim.fn.expand('<cWORD>')
@@ -171,8 +143,6 @@ function SendCommandToTerminal(index, text)
 	term.sendCommand(index, text)
 	term.gotoTerminal(index)
 end
-
-
 
 for index = 1, num_terms do
 	-- local term_hotkey = string.format('<A-%s>', index)
