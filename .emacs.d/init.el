@@ -223,7 +223,7 @@
 
   ;; Replace list hyphen with dot.
   (font-lock-add-keywords 'org-mode
-			  '(("^*\\([-]\\)"
+			  '(("^ *\\([-]\\) "
 			     (0 (prog1 () (compose-region
 					   (match-beginning 1)
 					   (match-end 1) "•"))))))
@@ -324,3 +324,4 @@
   :hook (dired-mode . all-the-icons-dired-mode))
 
 ;;===============================================================================
+(load (expand-file-name "custom-modes.el" user-emacs-directory))
