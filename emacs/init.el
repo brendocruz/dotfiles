@@ -1,4 +1,4 @@
-(setq custom-file "~/.config/emacs/emacs-custom.el")
+(setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 
@@ -40,7 +40,13 @@
 		    (kill-buffer buffer)))))
 
 
-
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
 
 
 
@@ -49,8 +55,9 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages")))
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("elpa" . "https://elpa.gnu.org/packages/")
+			 ("org" . "https://orgmode.org/elpa/")))
 
 (package-initialize)
 (unless package-archive-contents
@@ -171,6 +178,9 @@
 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 
+  ;; Enable redo funcionality
+  (evil-set-undo-system 'undo-redo)
+
   ;; Use visual line motions even outside of visual-line-mode buffers
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
@@ -208,6 +218,23 @@
 
 
 ;; Org mode configuration. ======================================================
+(defface bc-languages-list
+  `((t :foreground ,(doom-color 'base6)))
+  "Face for list.")
+
+;; Set face for org mode bullet lists.
+(font-lock-add-keywords 'org-mode
+			'(("^ *[-].+" 0
+			   'bc-languages-list))
+			't)
+
+;; Replace hyphens in list with em dashes.
+(font-lock-add-keywords 'org-mode
+			'(("^ *\\([-]\\) "
+			   (0 (prog1 () (compose-region
+					 (match-beginning 1)
+					 (match-end 1) "—"))))))
+
 
 (defun bc/org-mode-setup ()
   (org-indent-mode 1)
@@ -220,13 +247,6 @@
   ;;		    :regexp "\\(?:^\\|[\t\s]+\\|[^a-zA-Z0-9-]\\)\\(?1:[a-zA-Z0-9-]+\\)")
   ;;(define-abbrev org-mode-abbrev-table "---" "—")
 
-
-  ;; Replace list hyphen with dot.
-  (font-lock-add-keywords 'org-mode
-			  '(("^ *\\([-]\\) "
-			     (0 (prog1 () (compose-region
-					   (match-beginning 1)
-					   (match-end 1) "•"))))))
 
   ;; Set faces for heading levels.
   (dolist (face '((org-level-1 . 1.15)
@@ -251,7 +271,15 @@
   (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch)))
+  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+
+  ;; Retaining new lines separating headings
+;;  (customize-set-variable 'org-blank-before-new-entry 
+;;			  '((heading . nil)
+;;			    (plain-list-item . nil)))
+  (setq org-blank-before-new-entry '((heading . nil)
+				     (plain-list-item . nil)))
+  (setq org-cycle-separator-lines 5))
 
 
 
@@ -262,7 +290,12 @@
    ;; Replace the dots in the end of collapsed headings.
    org-ellipsis " ▾"
    ;; Hide the formating characters.
-   org-hide-emphasis-markers t))
+   org-hide-emphasis-markers t
+   ;;org-hide-leading-stars t
+   org-indent-indentation-per-level 1
+   org-adapt-indentation nil
+   ))
+
 
 
 
@@ -303,7 +336,9 @@
 	visual-fill-column-center-text t)
   (visual-fill-column-mode 1)
   ;; Omit `.` and `..`.
-  (dired-omit-mode))
+  (dired-omit-mode)
+  ;; Highlight current line
+  (hl-line-mode))
 
 (use-package dired
   :ensure nil
@@ -322,6 +357,3 @@
 
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
-
-;;===============================================================================
-(load (expand-file-name "custom-modes.el" user-emacs-directory))
