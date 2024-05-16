@@ -136,7 +136,7 @@ require("lazy").setup({
 
 	-- My Plugins
 	{
-		dir = '/home/jbk/Documentos/Projetos/Lua/MeuAmbiente',
+		dir = '~/Documents/Projects/Repos/meuambiente',
 		config = function()
 			require('meuambiente').setup()
 		end
