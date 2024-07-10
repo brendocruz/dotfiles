@@ -33,3 +33,16 @@ vim.api.nvim_set_keymap('n', '<A-x>', 'xpX<Esc>', opts)
 -- vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', opts)
 -- vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', opts)
 -- vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', opts)
+
+-- Disable recording.
+vim.api.nvim_set_keymap('n', 'q', '<Nop>', opts)
+
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = 'netrw',
+	callback = function()
+		local buf_opts = { remap = true, buffer = true }
+		vim.keymap.set('n', 'h', '-', buf_opts)
+		vim.keymap.set('n', 'l', '<cr>', buf_opts)
+	end
+})
