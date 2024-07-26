@@ -2,11 +2,6 @@ local on_attach = require('lsp.on_attach');
 local lspconfig = require('lspconfig')
 
 return {
-	settings = {
-		python = {
-			-- pythonPath = './.venv/bin/python3',
-		},
-	},
 	before_init = function(_, config)
 		local pythonPath = vim.fs.find('.venv/bin/python3', {
 			path = vim.fn.getcwd(),
@@ -19,5 +14,5 @@ return {
 	autostart = false,
 	on_attach = on_attach,
 	single_file_support = true,
-	root_dir = lspconfig.util.root_pattern('.'),
+	root_dir = lspconfig.util.root_pattern('src'),
 }

@@ -34,3 +34,6 @@ vim.opt.fileencoding = 'utf-8'
 
 -- COLORS
 vim.opt.termguicolors = true
+
+-- TABS
+vim.opt.showtabline = 0

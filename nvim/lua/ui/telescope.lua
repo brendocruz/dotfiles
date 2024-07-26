@@ -8,7 +8,8 @@ telescope.setup({
 	defaults = {
 		prompt_prefix = '$ ',
 		file_ignore_patterns = {
-			'node_modules', 'dist', 'node_modules/**/*'
+			'node_modules', 'dist', 'node_modules/**/*',
+			'__pycache__',
 		},
 	},
 	extensions = {

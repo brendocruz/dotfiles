@@ -44,5 +44,6 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 		local buf_opts = { remap = true, buffer = true }
 		vim.keymap.set('n', 'h', '-', buf_opts)
 		vim.keymap.set('n', 'l', '<cr>', buf_opts)
+		vim.keymap.set('n', 'q', ':bd<cr>', buf_opts)
 	end
 })

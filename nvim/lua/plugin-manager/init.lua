@@ -125,7 +125,7 @@ require("lazy").setup({
 	{
 		dir = '~/Documents/Projects/Repos/meuambiente',
 		config = function()
-			require('meuambiente').setup()
+			require('meuambiente').setup({})
 		end
 	}
 })
