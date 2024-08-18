@@ -7,7 +7,8 @@ lspconfig.setup({
 		'html',
 		'cssls',
 		'tsserver',
-		'emmet_language_server',
+		-- 'emmet_language_server',
+		'emmet_ls',
 		'intelephense',
 
 		-- Docker

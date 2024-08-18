@@ -14,7 +14,7 @@ local emmet_ls = {
 		'sass',
 		'scss',
 		'less',
-		'xml'
+		'xml',
 	},
 	on_attach = on_attach,
 	html = {

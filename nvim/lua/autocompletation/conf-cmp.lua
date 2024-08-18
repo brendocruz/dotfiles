@@ -84,3 +84,14 @@ cmp.setup.cmdline(':', {
 	}, { { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' }, }, }, }
 	)
 })
+
+
+
+
+function DisableCompletion()
+	cmp.setup.buffer({ enabled = false })
+end
+
+function EnableCompletion()
+	cmp.setup.buffer({ enabled = true })
+end

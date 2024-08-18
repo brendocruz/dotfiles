@@ -2,6 +2,8 @@
 -- LINE NUMBER
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = 'yes'
+vim.opt.numberwidth = 5
 
 -- MOUSE
 vim.opt.mouse = "a"

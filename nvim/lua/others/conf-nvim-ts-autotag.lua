@@ -4,11 +4,13 @@ if not status_ok then
 end
 
 autotag.setup({
-	filetypes = {
-		'html', 'xml', 'php', 'markdown', 'javascriptreact', 'typescriptreact',
-		'javascript', 'typescript'
-	},
-	enable_close_on_slash = false,
+	opts = {
+		-- filetypes = {
+		-- 	'html', 'xml', 'php', 'markdown', 'javascriptreact', 'typescriptreact',
+		-- 	'javascript', 'typescript'
+		-- },
+		-- enable_close_on_slash = true,
+	}
 })
 
 
