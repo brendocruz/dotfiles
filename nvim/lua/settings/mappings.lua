@@ -47,3 +47,29 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 		vim.keymap.set('n', 'q', ':bd<cr>', buf_opts)
 	end
 })
+
+
+-- Quickfix
+vim.cmd.packadd('cfilter')
+vim.api.nvim_set_keymap('n', '<leader>co', ':copen<cr>', opts)
+vim.api.nvim_set_keymap('n', '<leader>cc', ':cclose<cr>', opts)
+
+
+vim.keymap.set('n', '<leader>cx', function()
+	local curwin = vim.api.nvim_get_current_win()
+	if vim.fn.getwinvar(curwin, '&syntax') ~= 'qf' then
+		return
+	end
+
+	local pos = vim.api.nvim_win_get_cursor(0)
+	local lines = vim.fn.getqflist()
+	local num_lines = #lines
+	table.remove(lines, pos[1])
+	vim.fn.setqflist(lines)
+
+	if pos[1] > num_lines - 1 then
+		pos[1] = num_lines - 1
+	end
+
+	vim.api.nvim_win_set_cursor(0, pos)
+end, opts)
