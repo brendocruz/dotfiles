@@ -3,6 +3,7 @@
 
 
 (setq inhibit-startup-message t)
+;;(toggle-debug-on-error)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -27,11 +28,11 @@
 
 
 ;; Disable `*Messages*` buffer.
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
+;;(setq-default message-log-max nil)
+;;(kill-buffer "*Messages*")
 ;; Disable `*scratch*` buffer.
-(setq initial-scratch-message "")
-(kill-buffer "*scratch*")
+;;(setq initial-scratch-message "")
+;;(kill-buffer "*scratch*")
 
 (add-hook 'minibuffer-exit-hook
 	  '(lambda ()
@@ -218,6 +219,11 @@
 
 
 ;; Org mode configuration. ======================================================
+
+(defvar bc-languages-list
+  'bc-languages-list
+  "For for lists.")
+
 (defface bc-languages-list
   `((t :foreground ,(doom-color 'base6)))
   "Face for list.")
@@ -228,6 +234,7 @@
 			   'bc-languages-list))
 			't)
 
+
 ;; Replace hyphens in list with em dashes.
 (font-lock-add-keywords 'org-mode
 			'(("^ *\\([-]\\) "
@@ -237,7 +244,10 @@
 
 
 (defun bc/org-mode-setup ()
+  (setq org-adapt-indentation nil)
   (org-indent-mode 1)
+  (org-indent-mode 0)
+  (setq org-adapt-indentation nil)
   (variable-pitch-mode 1)
   (visual-line-mode 1)
 
@@ -246,6 +256,7 @@
   ;;(abbrev-table-put org-mode-abbrev-table
   ;;		    :regexp "\\(?:^\\|[\t\s]+\\|[^a-zA-Z0-9-]\\)\\(?1:[a-zA-Z0-9-]+\\)")
   ;;(define-abbrev org-mode-abbrev-table "---" "—")
+
 
 
   ;; Set faces for heading levels.
@@ -279,7 +290,8 @@
 ;;			    (plain-list-item . nil)))
   (setq org-blank-before-new-entry '((heading . nil)
 				     (plain-list-item . nil)))
-  (setq org-cycle-separator-lines 5))
+  (setq org-cycle-separator-lines 5)
+  )
 
 
 
@@ -292,18 +304,20 @@
    ;; Hide the formating characters.
    org-hide-emphasis-markers t
    ;;org-hide-leading-stars t
-   org-indent-indentation-per-level 1
-   org-adapt-indentation nil
-   ))
+   ;;org-indent-indentation-per-level 1
+   ;; org-adapt-indentation nil
+   )
+  ;; Open files in the same window
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file))
 
 
 
 
 ;; Replace the stars in the heading.
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+;; (use-package org-bullets
+  ;; :after org
+  ;; :hook (org-mode . org-bullets-mode)
+  ;; :custom (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 
 
