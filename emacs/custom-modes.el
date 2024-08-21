@@ -52,7 +52,13 @@
 
     (add-hook 'bc-poetry-mode-hook (lambda () (message "bc-poetry hook executed!")))
     (add-hook 'bc-poetry-mode-on-hook (lambda () (message "bc-poetry turned on!")))
-    (add-hook 'bc-poetry-mode-off-hook (lambda () (message "bc-poetry turned off!")))))
+    (add-hook 'bc-poetry-mode-off-hook (lambda () (message "bc-poetry turned off!"))))
+
+
+  (and buffer-file-name
+       (string-match "poem.org$" buffer-file-name)
+       (bc-poetry-mode 1))
+  )
 
 
 (add-hook 'org-mode-hook 'bc-poetry-mode-define-hook)
