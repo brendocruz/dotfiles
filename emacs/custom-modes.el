@@ -43,8 +43,8 @@
 
     (setq-local org-table--separator-space-pre "")
     (setq-local org-table--separator-space-post "")
-    (font-lock-add-keywords nil '(("|\\(\s*\\+.+?\s*\\)|" 1 bc-verse-stress-face t)) 'append)
-    (font-lock-add-keywords nil '(("|\\(\s*--.+?\s*\\)|" 1 bc-verse-rest-face t)) 'append)
+    (font-lock-add-keywords nil '(("\\(\s*\\+.+?\s*\\)|" 1 bc-verse-stress-face t)) 'append)
+    (font-lock-add-keywords nil '(("\\(\s*--.+?\s*\\)|" 1 bc-verse-rest-face t)) 'append)
 
     (if bc-poetry-mode
  	(message "bc-poetry-mode activated!")
