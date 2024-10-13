@@ -44,8 +44,8 @@ require("lazy").setup({
 	-- LSP Support
 	{
 		'neovim/nvim-lspconfig',
-		event = { "BufReadPost", "BufNewFile" },
-		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
+		-- event = { "BufReadPost", "BufNewFile" },
+		-- cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		config = function()
 			require('lsp.conf-mason')
 			require('lsp.conf-mason-lspconfig')
@@ -53,18 +53,9 @@ require("lazy").setup({
 			require('lsp.start-servers')
 		end,
 	},
-	{
-		'williamboman/mason.nvim',
-		lazy = true,
-	},
-	{
-		'williamboman/mason-lspconfig.nvim',
-		lazy = true,
-	},
-	{
-		'folke/neodev.nvim',
-		lazy = true,
-	},
+	'williamboman/mason.nvim',
+	'williamboman/mason-lspconfig.nvim',
+	'folke/neodev.nvim',
 
 	-- Icons
 	{
@@ -114,7 +105,6 @@ require("lazy").setup({
 	},
 	{
 		'tpope/vim-commentary',
-		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		config = function() end,
 	},

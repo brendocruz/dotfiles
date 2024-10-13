@@ -6,10 +6,11 @@ lspconfig.setup({
 		-- Web Development
 		'html',
 		'cssls',
-		'tsserver',
+		'ts_ls',
 		-- 'emmet_language_server',
 		'emmet_ls',
-		'intelephense',
+		-- 'intelephense',
+		'phpactor',
 
 		-- Docker
 		'dockerls',

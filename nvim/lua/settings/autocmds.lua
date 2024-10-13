@@ -15,7 +15,7 @@ local autocmds = {
 	terminal_job = {
 		{ 'TermOpen', '*', [[tnoremap <buffer> <Esc> <c-\><c-n>]] },
 		{ 'TermOpen', '*', 'startinsert' },
-		{ 'TermOpen', '*', 'setlocal listchars= nonumber norelativenumber' },
+		{ 'TermOpen', '*', 'setlocal listchars= nonumber norelativenumber signcolumn=auto' },
 	}
 }
 

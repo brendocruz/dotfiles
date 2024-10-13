@@ -5,10 +5,10 @@ end
 
 autotag.setup({
 	opts = {
-		-- filetypes = {
-		-- 	'html', 'xml', 'php', 'markdown', 'javascriptreact', 'typescriptreact',
-		-- 	'javascript', 'typescript'
-		-- },
+		filetypes = {
+			'html', 'xml', 'markdown', 'javascriptreact', 'typescriptreact',
+			'javascript', 'typescript', 'php',
+		},
 		-- enable_close_on_slash = true,
 	}
 })
