@@ -13,16 +13,12 @@ if cmp_status then
 	capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
-require("neodev").setup({ })
-
 local settings = {
 	Lua = {
-		-- completion = {
-		-- 	callSnippet = "Replace"
-		-- },
-		-- completion = {
-		-- 	enable = true,
-		-- },
+		completion = {
+			callSnippet = "Replace",
+			enable = true,
+		},
 		diagnostics = {
 			enable = true,
 			globals = { 'vim' },

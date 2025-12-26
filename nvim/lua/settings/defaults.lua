@@ -14,7 +14,7 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smarttab   = true
 vim.opt.linebreak  = true
--- vim.opt.textwidth   = 80
+vim.opt.textwidth   = 80
 vim.opt.colorcolumn = '80'
 
 -- SEARCH
@@ -39,3 +39,21 @@ vim.opt.termguicolors = true
 
 -- TABS
 vim.opt.showtabline = 0
+
+
+
+-- Markdown config.
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		-- LINE NUMBER
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		-- IDENTATION
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true
+		vim.opt_local.colorcolumn = '79'
+		vim.cmd("setlocal columns=89")
+		vim.cmd("setlocal foldcolumn=9")
+	end,
+})

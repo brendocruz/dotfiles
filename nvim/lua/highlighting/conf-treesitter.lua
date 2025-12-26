@@ -3,6 +3,7 @@ if not status_ok then
 	return
 end
 
+
 configs.setup({
 	modules = {},
 	ignore_install = {},
@@ -63,3 +64,22 @@ configs.setup({
 		},
 	},
 })
+
+
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+parser_config.blade = {
+	install_info = {
+		url = 'https://github.com/EmranMR/tree-sitter-blade',
+		files = { 'src/parser.c' },
+		branch = 'main',
+	},
+	filetype = 'blade',
+}
+
+vim.filetype.add({
+	pattern = {
+		['.*%.blade%.php'] = 'blade',
+	},
+})
+
+vim.treesitter.language.register('blade', 'blade') 

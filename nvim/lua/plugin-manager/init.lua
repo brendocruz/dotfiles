@@ -55,7 +55,8 @@ require("lazy").setup({
 	},
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	'folke/neodev.nvim',
+	'folke/lazydev.nvim',
+
 
 	-- Icons
 	{
