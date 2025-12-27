@@ -11,12 +11,6 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 require('lazydev').setup({})
 
 cmp.setup({
-	view = {
-		entries = {
-			name = 'custom',
-			selection_order = 'near_cursor'
-		}
-	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>']     = cmp.mapping.scroll_docs(-4),
 		['<C-f>']     = cmp.mapping.scroll_docs(4),
